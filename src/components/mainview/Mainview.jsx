@@ -13,17 +13,14 @@ const Mainview = () => {
       },
       { _id: 3, Title: "Gladiator", Description: "desc3...", ImagePath: "..." },
   ]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
-  if (selectedMovie) return <MovieView movie={selectedMovie} />
+  const [selectedMovie, setSelectedMovie] = useState(false);
 
   return (
     <>
-        {movies.length === 0 ? <h1>No movies to show</h1> : movies.map((movie) => (
-          <>
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(newMovie) => setSelectedMovie(newMovie)}/>
-          </>
-        ))}
+        {selectedMovie ? <MovieView movie={selectedMovie} onBackClick={(boo) => setSelectedMovie(boo)}/> : 
+          movies.length === 0 ? <h1>No movies to show</h1> : movies.map((movie) => (
+              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => {setSelectedMovie(newSelectedMovie)}}/>
+          ))}
     </>
   )
 }

@@ -25440,41 +25440,39 @@ const Mainview = ()=>{
             ImagePath: "..."
         }, 
     ]);
-    const [selectedMovie, setSelectedMovie] = _react.useState(null);
-    if (selectedMovie) return(/*#__PURE__*/ _jsxRuntime.jsx(_movieViewDefault.default, {
-        movie: selectedMovie,
-        __source: {
-            fileName: "src/components/mainview/Mainview.jsx",
-            lineNumber: 18
-        },
-        __self: undefined
-    }));
+    const [selectedMovie, setSelectedMovie] = _react.useState(false);
     return(/*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
-        children: movies.length === 0 ? /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+        children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieViewDefault.default, {
+            movie: selectedMovie,
+            onBackClick: (boo)=>setSelectedMovie(boo)
+            ,
             __source: {
                 fileName: "src/components/mainview/Mainview.jsx",
-                lineNumber: 22
+                lineNumber: 20
+            },
+            __self: undefined
+        }) : movies.length === 0 ? /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+            __source: {
+                fileName: "src/components/mainview/Mainview.jsx",
+                lineNumber: 21
             },
             __self: undefined,
             children: "No movies to show"
-        }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
-                children: [
-                    /*#__PURE__*/ _jsxRuntime.jsx(_movieCardDefault.default, {
-                        movie: movie,
-                        onMovieClick: (newMovie)=>setSelectedMovie(newMovie)
-                        ,
-                        __source: {
-                            fileName: "src/components/mainview/Mainview.jsx",
-                            lineNumber: 24
-                        },
-                        __self: undefined
-                    }, movie._id)
-                ]
-            })
+        }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCardDefault.default, {
+                movie: movie,
+                onMovieClick: (newSelectedMovie)=>{
+                    setSelectedMovie(newSelectedMovie);
+                },
+                __source: {
+                    fileName: "src/components/mainview/Mainview.jsx",
+                    lineNumber: 22
+                },
+                __self: undefined
+            }, movie._id)
         )
     }));
 };
-_s(Mainview, "DZQeqD9ilU/Ge5y81it3o9o9IpM=");
+_s(Mainview, "owh9fN0tWdeZTsQTOeIUiSKt0YE=");
 _c = Mainview;
 exports.default = Mainview;
 var _c;
@@ -25509,7 +25507,8 @@ const MovieCard = ({ movie , onMovieClick  })=>{
                 children: movie.Title
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                onClick: onMovieClick(movie),
+                onClick: ()=>onMovieClick(movie)
+                ,
                 __source: {
                     fileName: "src/components/movieCard/MovieCard.jsx",
                     lineNumber: 7
@@ -25542,7 +25541,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-const MovieView = ({ movie  })=>{
+const MovieView = ({ movie , onBackClick  })=>{
     // if (!movie) return <h1>No movies</h1>
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
         children: [
@@ -25569,6 +25568,16 @@ const MovieView = ({ movie  })=>{
                     lineNumber: 9
                 },
                 __self: undefined
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                onClick: ()=>onBackClick(false)
+                ,
+                __source: {
+                    fileName: "src/components/movieView/MovieView.jsx",
+                    lineNumber: 10
+                },
+                __self: undefined,
+                children: "Go Back"
             })
         ]
     }));
