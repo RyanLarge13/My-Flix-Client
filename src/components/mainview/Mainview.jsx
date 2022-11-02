@@ -17,7 +17,7 @@ const Mainview = () => {
 
   return (
     <>
-        {selectedMovie ? <MovieView movie={selectedMovie} onBackClick={(boo) => setSelectedMovie(boo)}/> : 
+        {selectedMovie ? <MovieView movie={selectedMovie} onBackClick={(bool) => setSelectedMovie(bool)}/> : 
           movies.length === 0 ? <h1>No movies to show</h1> : movies.map((movie) => (
               <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => {setSelectedMovie(newSelectedMovie)}}/>
           ))}
