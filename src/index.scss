@@ -1,4 +1,5 @@
-$color: red;
 .my-flix {
-	color: $color;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
 }

@@ -25417,6 +25417,7 @@ var _movieCard = require("../movieCard/MovieCard");
 var _movieCardDefault = parcelHelpers.interopDefault(_movieCard);
 var _movieView = require("../movieView/MovieView");
 var _movieViewDefault = parcelHelpers.interopDefault(_movieView);
+var _mainViewScss = require("./mainView.scss");
 var _s = $RefreshSig$();
 const Mainview = ()=>{
     _s();
@@ -25444,17 +25445,17 @@ const Mainview = ()=>{
     return(/*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
         children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieViewDefault.default, {
             movie: selectedMovie,
-            onBackClick: (boo)=>setSelectedMovie(boo)
+            onBackClick: (bool)=>setSelectedMovie(bool)
             ,
             __source: {
                 fileName: "src/components/mainview/Mainview.jsx",
-                lineNumber: 20
+                lineNumber: 21
             },
             __self: undefined
         }) : movies.length === 0 ? /*#__PURE__*/ _jsxRuntime.jsx("h1", {
             __source: {
                 fileName: "src/components/mainview/Mainview.jsx",
-                lineNumber: 21
+                lineNumber: 22
             },
             __self: undefined,
             children: "No movies to show"
@@ -25465,7 +25466,7 @@ const Mainview = ()=>{
                 },
                 __source: {
                     fileName: "src/components/mainview/Mainview.jsx",
-                    lineNumber: 22
+                    lineNumber: 23
                 },
                 __self: undefined
             }, movie._id)
@@ -25483,7 +25484,7 @@ $RefreshReg$(_c, "Mainview");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"l8mab","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kB29R","../movieCard/MovieCard":"kXuWL","../movieView/MovieView":"1llxl"}],"kXuWL":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"l8mab","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kB29R","../movieCard/MovieCard":"kXuWL","../movieView/MovieView":"1llxl","./mainView.scss":"dD6eK"}],"kXuWL":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$6130 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25495,28 +25496,37 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _movieCardScss = require("./movieCard.scss");
 const MovieCard = ({ movie , onMovieClick  })=>{
-    return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("h1", {
-                __source: {
-                    fileName: "src/components/movieCard/MovieCard.jsx",
-                    lineNumber: 6
-                },
-                __self: undefined,
-                children: movie.Title
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                onClick: ()=>onMovieClick(movie)
-                ,
-                __source: {
-                    fileName: "src/components/movieCard/MovieCard.jsx",
-                    lineNumber: 7
-                },
-                __self: undefined,
-                children: "Show Details"
-            })
-        ]
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
+        children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+            className: "movie",
+            __source: {
+                fileName: "src/components/movieCard/MovieCard.jsx",
+                lineNumber: 7
+            },
+            __self: undefined,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+                    __source: {
+                        fileName: "src/components/movieCard/MovieCard.jsx",
+                        lineNumber: 8
+                    },
+                    __self: undefined,
+                    children: movie.Title
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                    onClick: ()=>onMovieClick(movie)
+                    ,
+                    __source: {
+                        fileName: "src/components/movieCard/MovieCard.jsx",
+                        lineNumber: 9
+                    },
+                    __self: undefined,
+                    children: "View More"
+                })
+            ]
+        })
     }));
 };
 _c = MovieCard;
@@ -25529,7 +25539,7 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"l8mab","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kB29R"}],"1llxl":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"l8mab","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kB29R","./movieCard.scss":"h3rHI"}],"h3rHI":[function() {},{}],"1llxl":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$b097 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25541,45 +25551,54 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _movieViewScss = require("./movieView.scss");
 const MovieView = ({ movie , onBackClick  })=>{
     // if (!movie) return <h1>No movies</h1>
-    return(/*#__PURE__*/ _jsxRuntime.jsxs(_jsxRuntime.Fragment, {
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsx("h2", {
-                __source: {
-                    fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 7
-                },
-                __self: undefined,
-                children: movie.Title
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("h3", {
-                __source: {
-                    fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 8
-                },
-                __self: undefined,
-                children: movie.Description
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("img", {
-                src: movie.ImagePath,
-                __source: {
-                    fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 9
-                },
-                __self: undefined
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                onClick: ()=>onBackClick(false)
-                ,
-                __source: {
-                    fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 10
-                },
-                __self: undefined,
-                children: "Go Back"
-            })
-        ]
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_jsxRuntime.Fragment, {
+        children: /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+            className: "container",
+            __source: {
+                fileName: "src/components/movieView/MovieView.jsx",
+                lineNumber: 8
+            },
+            __self: undefined,
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx("h2", {
+                    __source: {
+                        fileName: "src/components/movieView/MovieView.jsx",
+                        lineNumber: 9
+                    },
+                    __self: undefined,
+                    children: movie.Title
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("h3", {
+                    __source: {
+                        fileName: "src/components/movieView/MovieView.jsx",
+                        lineNumber: 10
+                    },
+                    __self: undefined,
+                    children: movie.Description
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("img", {
+                    src: movie.ImagePath,
+                    __source: {
+                        fileName: "src/components/movieView/MovieView.jsx",
+                        lineNumber: 11
+                    },
+                    __self: undefined
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                    onClick: ()=>onBackClick(false)
+                    ,
+                    __source: {
+                        fileName: "src/components/movieView/MovieView.jsx",
+                        lineNumber: 12
+                    },
+                    __self: undefined,
+                    children: "Go Back"
+                })
+            ]
+        })
     }));
 };
 _c = MovieView;
@@ -25592,6 +25611,6 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"l8mab","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kB29R"}]},["89cik","gxb7f","dLPEP"], "dLPEP", "parcelRequiree3ea")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"l8mab","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kB29R","./movieView.scss":"4Jjnu"}],"4Jjnu":[function() {},{}],"dD6eK":[function() {},{}]},["89cik","gxb7f","dLPEP"], "dLPEP", "parcelRequiree3ea")
 
 //# sourceMappingURL=index.6701a6e1.js.map
