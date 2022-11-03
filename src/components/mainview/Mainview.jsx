@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import MovieCard from '../movieCard/MovieCard';
 import MovieView from '../movieView/MovieView';
 import './mainView.scss';
 
 const Mainview = () => {
-  const [movies, setMovies] = useState([
-      { _id: 1, Title: "Inception", Description: "desc1...", ImagePath: "..." },
-      {
-        _id: 2,
-        Title: "The Shawshank Redemption",
-        Description: "desc2...",
-        ImagePath: "...",
-      },
-      { _id: 3, Title: "Gladiator", Description: "desc3...", ImagePath: "..." },
-  ]);
+  const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(false);
+
+  useEffect(() => {
+    axios.get('https://ryans-flix.herokuapp.com/movies')
+    .then((res) => {
+      setMovies(res.data);
+    })
+    .catch((err) => console.log(err))
+  }, [movies])
 
   return (
     <>
