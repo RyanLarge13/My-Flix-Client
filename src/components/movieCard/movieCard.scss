@@ -12,12 +12,16 @@
     h1 {
         padding: 0.5em 0;
     }
+    p {
+        line-height: 1.5em;
+    }
     button {
         border: none;
-        outline: none;
-        padding: 0.25em 0.75em;
+        padding: 1em 2em;
         border-radius: 0.5em;
         cursor: pointer;
         font-weight: 600;
+        box-shadow: 0 0.1em 0.25em 0 #eee;
+        background-image: linear-gradient(45deg, #fff, #eee);
     }
 }

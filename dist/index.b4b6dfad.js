@@ -33920,8 +33920,6 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _movieViewScss = require("./movieView.scss");
 const MovieView = ({ movie , onBackClick  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -33932,21 +33930,21 @@ const MovieView = ({ movie , onBackClick  })=>{
                     children: movie.Title
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 9,
+                    lineNumber: 8,
                     columnNumber: 9
                 }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: movie.Description
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 10,
+                    lineNumber: 9,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: movie.ImageUrl
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 11,
+                    lineNumber: 10,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -33954,19 +33952,19 @@ const MovieView = ({ movie , onBackClick  })=>{
                     children: "Go Back"
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 12,
+                    lineNumber: 11,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movieView/MovieView.jsx",
-            lineNumber: 8,
+            lineNumber: 7,
             columnNumber: 7
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
             children: "No movie to show"
         }, void 0, false, {
             fileName: "src/components/movieView/MovieView.jsx",
-            lineNumber: 14,
+            lineNumber: 13,
             columnNumber: 9
         }, undefined)
     }, void 0, false);
@@ -33981,7 +33979,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./movieView.scss":"73oGt","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5QIBz"}],"73oGt":[function() {},{}],"g7Oul":[function() {},{}],"iKcw9":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./movieView.scss":"73oGt","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5QIBz"}],"73oGt":[function() {},{}],"g7Oul":[function() {},{}],"iKcw9":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4770 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import './movieView.scss';
 
 const MovieView = ({ movie, onBackClick }) => {
@@ -7,7 +6,7 @@ const MovieView = ({ movie, onBackClick }) => {
     {movie ? (
       <div className='container'>
         <h2>{movie.Title}</h2>
-        <h3>{movie.Description}</h3>
+        <p>{movie.Description}</p>
         <img src={movie.ImageUrl}/>
         <button onClick={() => onBackClick(false)}>Go Back</button>
       </div> ) : (
