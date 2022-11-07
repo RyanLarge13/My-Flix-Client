@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import Mainview from './components/mainview/Mainview';
 import './index.scss';
 
@@ -8,15 +8,14 @@ class MyFlixApplication extends React.Component {
   
   render() {
     return (
-      <>
-        <div className="my-flix">
-          <Mainview />
-        </div>
-      </>
+      <div className="my-flix">
+        <Mainview />
+      </div>
     );
   }
 }
 
 const container = document.getElementsByClassName('app-container')[0];
+const root = createRoot(container);
 
-ReactDOM.render(React.createElement(MyFlixApplication), container);
+root.render(React.createElement(MyFlixApplication));

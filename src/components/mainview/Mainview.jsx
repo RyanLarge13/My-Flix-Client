@@ -18,7 +18,7 @@ const Mainview = () => {
       setMovies(res.data);
     })
     .catch((err) => console.log(err));
-  }, [movies]);
+  }, []);
   
   const onLoggedin = (user) => {
     setUser(user);
