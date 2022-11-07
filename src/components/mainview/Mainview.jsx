@@ -4,18 +4,13 @@ import axios from 'axios';
 import MovieCard from '../movieCard/MovieCard';
 import MovieView from '../movieView/MovieView';
 import LoginView from '../loginView/LoginView';
+import RegisterView from '../registerView/RegisterView';
 import './mainView.scss';
 
 const Mainview = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(false);
   const [user, setUser] = useState(false);
-
-  const onLoggedin = (user) => {
-    setUser(user);
-  };
-
-  if (!user) <LoginView onLoggedin={user => onLoggedin(user)} />
   
   useEffect(() => {
     axios.get('https://ryans-flix.herokuapp.com/movies')
@@ -24,6 +19,12 @@ const Mainview = () => {
     })
     .catch((err) => console.log(err));
   }, [movies]);
+  
+  const onLoggedin = (user) => {
+    setUser(user);
+  };
+  
+  if (!user) return <LoginView onLoggedin={user => onLoggedin(user)} />
 
   return (
     <>

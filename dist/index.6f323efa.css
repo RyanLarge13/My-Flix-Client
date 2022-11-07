@@ -6,6 +6,12 @@
   display: flex;
 }
 
+.movie img {
+  width: 200px;
+  height: 300px;
+  border-radius: 1em;
+}
+
 .movie h1 {
   padding: .5em 0;
 }
@@ -28,6 +34,56 @@
 }
 
 
+
+.login-sec {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.login-sec h1 {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #eee, #aaa);
+  font-size: 6em;
+}
+
+.login-sec form {
+  width: 50vw;
+  flex-direction: column;
+  display: flex;
+}
+
+.login-sec form label {
+  display: none;
+}
+
+.login-sec form input {
+  border: none;
+  border-radius: .5em;
+  outline: none;
+  margin: 1em 0;
+  padding: 1em .5em;
+  font-size: 1em;
+  font-weight: 600;
+  box-shadow: 0 .1em .25em #eee;
+}
+
+.login-sec form button {
+  width: 25%;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, #fff, #eee);
+  border: none;
+  border-radius: .5em;
+  align-self: center;
+  margin-top: 4em;
+  padding: 1em 0;
+  font-size: 1em;
+  font-weight: 600;
+  box-shadow: 0 .1em .25em #eee;
+}
 
 
 

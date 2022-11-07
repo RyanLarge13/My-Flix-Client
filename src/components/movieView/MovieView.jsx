@@ -8,7 +8,7 @@ const MovieView = ({ movie, onBackClick }) => {
       <div className='container'>
         <h2>{movie.Title}</h2>
         <h3>{movie.Description}</h3>
-        <img src={movie.ImagePath}/>
+        <img src={movie.ImageUrl}/>
         <button onClick={() => onBackClick(false)}>Go Back</button>
       </div> ) : (
         <h1>No movie to show</h1>
