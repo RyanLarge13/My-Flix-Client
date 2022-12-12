@@ -5583,17 +5583,19 @@ const Mainview = ()=>{
                             children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
                                 to: "/login",
                                 replace: true
-                            }, void 0, false, void 0, void 0) : movies.lenght < 1 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpinners.BounceLoader), {}, void 0, false, void 0, void 0)
-                            }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
-                                md: 8,
-                                children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCardDefault.default), {
-                                        movie: movie,
-                                        onMovieClick: (newSelectedMovie)=>{
-                                            setSelectedMovie(newSelectedMovie);
-                                        }
-                                    }, movie._id, false, void 0, void 0))
-                            }, void 0, false, void 0, void 0)
+                            }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                children: movies.length < 1 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpinners.BounceLoader), {}, void 0, false, void 0, void 0)
+                                }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                    md: 8,
+                                    children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCardDefault.default), {
+                                            movie: movie,
+                                            onMovieClick: (newSelectedMovie)=>{
+                                                setSelectedMovie(newSelectedMovie);
+                                            }
+                                        }, movie._id, false, void 0, void 0))
+                                }, void 0, false, void 0, void 0)
+                            }, void 0, false)
                         }, void 0, false)
                     }, void 0, false, {
                         fileName: "src/components/mainview/Mainview.jsx",
@@ -5614,7 +5616,7 @@ const Mainview = ()=>{
                         }, void 0, false)
                     }, void 0, false, {
                         fileName: "src/components/mainview/Mainview.jsx",
-                        lineNumber: 98,
+                        lineNumber: 102,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -12744,13 +12746,16 @@ const RegisterView = ()=>{
     const [email, setEmail] = (0, _react.useState)("");
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
+    const changeEmail = (e)=>{};
+    const changeUsername = (e)=>{};
+    const changePass = (e)=>{};
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Register!"
             }, void 0, false, {
                 fileName: "src/components/registerView/RegisterView.jsx",
-                lineNumber: 12,
+                lineNumber: 18,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -12760,7 +12765,7 @@ const RegisterView = ()=>{
                         children: "Email"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 14,
+                        lineNumber: 20,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -12768,10 +12773,11 @@ const RegisterView = ()=>{
                         name: "email",
                         id: "email",
                         value: email,
-                        placeholder: "Email"
+                        placeholder: "Email",
+                        onChange: changeEmail
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 15,
+                        lineNumber: 21,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -12779,7 +12785,7 @@ const RegisterView = ()=>{
                         children: "Username"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 22,
+                        lineNumber: 29,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -12787,10 +12793,11 @@ const RegisterView = ()=>{
                         name: "username",
                         id: "username",
                         value: username,
-                        placeholder: "Username"
+                        placeholder: "Username",
+                        onChange: changeUsername
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 23,
+                        lineNumber: 30,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -12798,7 +12805,7 @@ const RegisterView = ()=>{
                         children: "Password"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 30,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -12806,10 +12813,11 @@ const RegisterView = ()=>{
                         name: "password",
                         id: "password",
                         value: password,
-                        placeholder: "Password"
+                        placeholder: "Password",
+                        onChange: changePass
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 31,
+                        lineNumber: 39,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -12817,13 +12825,13 @@ const RegisterView = ()=>{
                         children: "Register"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 38,
+                        lineNumber: 47,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/registerView/RegisterView.jsx",
-                lineNumber: 13,
+                lineNumber: 19,
                 columnNumber: 7
             }, undefined)
         ]

@@ -26,7 +26,7 @@ const Mainview = () => {
     axios
       .get("my-flix-production.up.railway.app/movies")
       .then((res) => {
-        setMovies(res.data);
+        setMovies(res.data)
       })
       .catch((err) => console.log(err));
   }, []);
@@ -75,22 +75,26 @@ const Mainview = () => {
             <>
               {!user ? (
                 <Navigate to="/login" replace />
-              ) : movies.lenght < 1 ? (
-                <Col>
-                  <BounceLoader />
-                </Col>
               ) : (
-                <Col md={8}>
-                  {movies.map((movie) => (
-                    <MovieCard
-                      key={movie._id}
-                      movie={movie}
-                      onMovieClick={(newSelectedMovie) => {
-                        setSelectedMovie(newSelectedMovie);
-                      }}
-                    />
-                  ))}
-                </Col>
+                <>
+                  {movies.length < 1 ? (
+                    <Col>
+                      <BounceLoader />
+                    </Col>
+                  ) : (
+                    <Col md={8}>
+                      {movies.map((movie) => (
+                        <MovieCard
+                          key={movie._id}
+                          movie={movie}
+                          onMovieClick={(newSelectedMovie) => {
+                            setSelectedMovie(newSelectedMovie);
+                          }}
+                        />
+                      ))}
+                    </Col>
+                  )}
+                </>
               )}
             </>
           }

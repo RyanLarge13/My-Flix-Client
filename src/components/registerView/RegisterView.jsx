@@ -7,6 +7,12 @@ const RegisterView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const changeEmail = (e) => {};
+
+  const changeUsername = (e) => {};
+
+  const changePass = (e) => {};
+
   return (
     <>
       <h1>Register!</h1>
@@ -18,6 +24,7 @@ const RegisterView = () => {
           id="email"
           value={email}
           placeholder="Email"
+          onChange={changeEmail}
         />
         <label htmlFor="username">Username</label>
         <input
@@ -26,6 +33,7 @@ const RegisterView = () => {
           id="username"
           value={username}
           placeholder="Username"
+          onChange={changeUsername}
         />
         <label htmlFor="password">Password</label>
         <input
@@ -34,6 +42,7 @@ const RegisterView = () => {
           id="password"
           value={password}
           placeholder="Password"
+          onChange={changePass}
         />
         <button type="submit">Register</button>
       </form>
