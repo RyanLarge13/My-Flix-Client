@@ -5528,7 +5528,7 @@ const Mainview = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(false);
     const [user, setUser] = (0, _react.useState)(false);
     (0, _react.useEffect)(()=>{
-        (0, _axiosDefault.default).get("https://ryans-flix.herokuapp.com/movies").then((res)=>{
+        (0, _axiosDefault.default).get("my-flix-production.up.railway.app/movies").then((res)=>{
             setMovies(res.data);
         }).catch((err)=>console.log(err));
     }, []);

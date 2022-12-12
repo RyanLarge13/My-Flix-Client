@@ -24,7 +24,7 @@ const Mainview = () => {
 
   useEffect(() => {
     axios
-      .get("https://ryans-flix.herokuapp.com/movies")
+      .get("my-flix-production.up.railway.app/movies")
       .then((res) => {
         setMovies(res.data);
       })
