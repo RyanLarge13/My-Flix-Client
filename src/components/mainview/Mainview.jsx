@@ -102,7 +102,9 @@ const Mainview = () => {
               {!user ? (
                 <Navigate to="/login" replace />
               ) : (
-                <Profile user={user} />
+                <Col>
+                  <Profile user={user} />
+                </Col>
               )}
             </>
           }

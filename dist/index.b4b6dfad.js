@@ -5606,8 +5606,10 @@ const Mainview = ()=>{
                             children: !user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Navigate), {
                                 to: "/login",
                                 replace: true
-                            }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileDefault.default), {
-                                user: user
+                            }, void 0, false, void 0, void 0) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _profileDefault.default), {
+                                    user: user
+                                }, void 0, false, void 0, void 0)
                             }, void 0, false, void 0, void 0)
                         }, void 0, false)
                     }, void 0, false, {
@@ -12742,20 +12744,14 @@ const RegisterView = ()=>{
     const [email, setEmail] = (0, _react.useState)("");
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
-    // useEffect(() => {
-    //   first
-    //   return () => {
-    //     second
-    //   }
-    // }, [third])
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                 children: "Register!"
             }, void 0, false, {
                 fileName: "src/components/registerView/RegisterView.jsx",
-                lineNumber: 20,
-                columnNumber: 9
+                lineNumber: 12,
+                columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                 children: [
@@ -12764,8 +12760,8 @@ const RegisterView = ()=>{
                         children: "Email"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 22,
-                        columnNumber: 13
+                        lineNumber: 14,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "email",
@@ -12775,16 +12771,16 @@ const RegisterView = ()=>{
                         placeholder: "Email"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 23,
-                        columnNumber: 13
+                        lineNumber: 15,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         htmlFor: "username",
                         children: "Username"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 24,
-                        columnNumber: 13
+                        lineNumber: 22,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "text",
@@ -12794,16 +12790,16 @@ const RegisterView = ()=>{
                         placeholder: "Username"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 25,
-                        columnNumber: 13
+                        lineNumber: 23,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                         htmlFor: "password",
                         children: "Password"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 26,
-                        columnNumber: 13
+                        lineNumber: 30,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                         type: "password",
@@ -12813,27 +12809,27 @@ const RegisterView = ()=>{
                         placeholder: "Password"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 27,
-                        columnNumber: 13
+                        lineNumber: 31,
+                        columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         type: "submit",
                         children: "Register"
                     }, void 0, false, {
                         fileName: "src/components/registerView/RegisterView.jsx",
-                        lineNumber: 28,
-                        columnNumber: 13
+                        lineNumber: 38,
+                        columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/registerView/RegisterView.jsx",
-                lineNumber: 21,
-                columnNumber: 9
+                lineNumber: 13,
+                columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(RegisterView, "wACJe+bl+8h3O7KtuFOMof9+G20=");
+_s(RegisterView, "ys9BfYGn4l1K34YvoWC903iXxZI=");
 _c = RegisterView;
 exports.default = RegisterView;
 var _c;
@@ -17353,11 +17349,13 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _framerMotion = require("framer-motion");
+var _reactBootstrap = require("react-bootstrap");
 var _reactRouterDom = require("react-router-dom");
 var _navigationScss = require("./navigation.scss");
 const Navigation = ({ user  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        children: user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
+            className: "nav",
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -17366,12 +17364,12 @@ const Navigation = ({ user  })=>{
                             children: "Home"
                         }, void 0, false, {
                             fileName: "src/components/navigation/Navigation.jsx",
-                            lineNumber: 12,
+                            lineNumber: 13,
                             columnNumber: 15
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/navigation/Navigation.jsx",
-                        lineNumber: 11,
+                        lineNumber: 12,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -17380,12 +17378,12 @@ const Navigation = ({ user  })=>{
                             children: "Movies"
                         }, void 0, false, {
                             fileName: "src/components/navigation/Navigation.jsx",
-                            lineNumber: 15,
+                            lineNumber: 16,
                             columnNumber: 15
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/navigation/Navigation.jsx",
-                        lineNumber: 14,
+                        lineNumber: 15,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -17393,25 +17391,26 @@ const Navigation = ({ user  })=>{
                             to: "/profile"
                         }, void 0, false, {
                             fileName: "src/components/navigation/Navigation.jsx",
-                            lineNumber: 18,
+                            lineNumber: 19,
                             columnNumber: 15
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/navigation/Navigation.jsx",
-                        lineNumber: 17,
+                        lineNumber: 18,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/navigation/Navigation.jsx",
-                lineNumber: 10,
+                lineNumber: 11,
                 columnNumber: 11
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/navigation/Navigation.jsx",
-            lineNumber: 9,
+            lineNumber: 10,
             columnNumber: 9
-        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
+            className: "nav",
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -17420,12 +17419,12 @@ const Navigation = ({ user  })=>{
                             children: "Signup"
                         }, void 0, false, {
                             fileName: "src/components/navigation/Navigation.jsx",
-                            lineNumber: 26,
+                            lineNumber: 27,
                             columnNumber: 15
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/navigation/Navigation.jsx",
-                        lineNumber: 25,
+                        lineNumber: 26,
                         columnNumber: 13
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
@@ -17434,23 +17433,23 @@ const Navigation = ({ user  })=>{
                             children: "Login"
                         }, void 0, false, {
                             fileName: "src/components/navigation/Navigation.jsx",
-                            lineNumber: 29,
+                            lineNumber: 30,
                             columnNumber: 15
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/navigation/Navigation.jsx",
-                        lineNumber: 28,
+                        lineNumber: 29,
                         columnNumber: 13
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/navigation/Navigation.jsx",
-                lineNumber: 24,
+                lineNumber: 25,
                 columnNumber: 11
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/navigation/Navigation.jsx",
-            lineNumber: 23,
+            lineNumber: 24,
             columnNumber: 9
         }, undefined)
     }, void 0, false);
@@ -17465,7 +17464,7 @@ $RefreshReg$(_c, "Navigation");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","framer-motion":"5bZBB","react-router-dom":"9xmpe","./navigation.scss":"ddhL3","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5QIBz"}],"5bZBB":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","framer-motion":"5bZBB","react-router-dom":"9xmpe","./navigation.scss":"ddhL3","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5QIBz","react-bootstrap":"3AD9A"}],"5bZBB":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createDomMotionComponent", ()=>(0, _motionMjs.createDomMotionComponent));
@@ -29018,36 +29017,7 @@ let hasWarned = false;
     };
 }
 
-},{"./use-transform.mjs":"gAMIr","hey-listen":"8yK8Z","./use-motion-value.mjs":"rszYa","../context/MotionContext/index.mjs":"3aBYo","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm"}],"ddhL3":[function() {},{}],"9DzFQ":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$cacb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$cacb.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const Profile = ({ user  })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: "Profile"
-    }, void 0, false, {
-        fileName: "src/components/profile/Profile.jsx",
-        lineNumber: 2,
-        columnNumber: 10
-    }, undefined);
-};
-_c = Profile;
-exports.default = Profile;
-var _c;
-$RefreshReg$(_c, "Profile");
-
-  $parcel$ReactRefreshHelpers$cacb.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5QIBz"}],"3AD9A":[function(require,module,exports) {
+},{"./use-transform.mjs":"gAMIr","hey-listen":"8yK8Z","./use-motion-value.mjs":"rszYa","../context/MotionContext/index.mjs":"3aBYo","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm"}],"ddhL3":[function() {},{}],"3AD9A":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>(0, _accordionDefault.default));
@@ -63091,7 +63061,36 @@ Tooltip.defaultProps = defaultProps;
 Tooltip.displayName = "Tooltip";
 exports.default = Tooltip;
 
-},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","./helpers":"gotcT","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm"}],"lJZlQ":[function() {},{}],"lOjBx":[function(require,module,exports) {
+},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","./helpers":"gotcT","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm"}],"9DzFQ":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$cacb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$cacb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const Profile = ({ user  })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        children: "Profile"
+    }, void 0, false, {
+        fileName: "src/components/profile/Profile.jsx",
+        lineNumber: 2,
+        columnNumber: 10
+    }, undefined);
+};
+_c = Profile;
+exports.default = Profile;
+var _c;
+$RefreshReg$(_c, "Profile");
+
+  $parcel$ReactRefreshHelpers$cacb.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"iHHlm","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"5QIBz"}],"lJZlQ":[function() {},{}],"lOjBx":[function(require,module,exports) {
 "use strict";
 var m = require("react-dom");
 var i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;

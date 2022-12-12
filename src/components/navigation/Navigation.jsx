@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./navigation.scss";
 
@@ -6,7 +7,7 @@ const Navigation = ({ user }) => {
   return (
     <>
       {user ? (
-        <nav>
+        <Navbar className="nav">
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -18,9 +19,9 @@ const Navigation = ({ user }) => {
               <Link to="/profile"></Link>
             </li>
           </ul>
-        </nav>
+        </Navbar>
       ) : (
-        <nav>
+        <Navbar className="nav">
           <ul>
             <li>
               <Link to="/">Signup</Link>
@@ -29,7 +30,7 @@ const Navigation = ({ user }) => {
               <Link to="/login">Login</Link>
             </li>
           </ul>
-        </nav>
+        </Navbar>
       )}
     </>
   );
