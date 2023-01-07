@@ -18,15 +18,19 @@ import Profile from "../profile/Profile";
 import "./mainView.scss";
 
 const Mainview = () => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(null);
   const [selectedMovie, setSelectedMovie] = useState(false);
   const [user, setUser] = useState(false);
 
   useEffect(() => {
     axios
-      .get("my-flix-production.up.railway.app/movies")
+      .get("my-flix-production.up.railway.app/movies", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
       .then((res) => {
-        setMovies(res.data)
+        console.log(res)
       })
       .catch((err) => console.log(err));
   }, []);
