@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Merriweather', serif;
 }
 
-.my-flix {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6em;
-    padding: 4em;
+body {
+    margin-top: 15vh;
 }

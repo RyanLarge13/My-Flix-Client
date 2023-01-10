@@ -1,9 +1,12 @@
 @import "https://fonts.googleapis.com/css2?family=Merriweather&display=swap";
 .nav {
   width: 100vw;
-  height: 10vh;
+  background-image: linear-gradient(45deg, #eee, #ddd);
+  border-radius: 0 0 10px 10px;
   position: fixed;
   top: 0;
+  left: 0;
+  box-shadow: 0 .1em .5em #aaa;
 }
 
 .nav ul {
@@ -11,33 +14,138 @@
 }
 
 .nav ul li {
-  margin: 1em;
+  margin: 2em 0;
   list-style: none;
 }
 
 .nav ul li a {
   color: #000;
-  padding: 1em;
+  padding: 2em 3em;
   text-decoration: none;
   transition: all .25s ease-in-out;
 }
 
 .nav ul li a:hover {
-  color: #aaa;
+  color: #999;
 }
 
-* {
-  font-family: Merriweather, serif;
+.movie {
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
 }
 
-.my-flix {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6em;
-  padding: 4em;
-  display: grid;
+.movie img {
+  width: 200px;
+  height: 300px;
+  border-radius: 1em;
 }
 
+.movie h1 {
+  padding: .5em 0;
+}
 
+.movie p {
+  line-height: 1.5em;
+}
+
+.movie button {
+  cursor: pointer;
+  background-image: linear-gradient(45deg, #fff, #eee);
+  border: none;
+  border-radius: .5em;
+  padding: 1em 2em;
+  font-weight: 600;
+  box-shadow: 0 .1em .25em #eee;
+}
+
+.container {
+  width: 90vw;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  display: flex;
+}
+
+.container h2 {
+  margin-bottom: .25em;
+  font-size: 6em;
+}
+
+.container p {
+  width: 50%;
+  text-align: center;
+  line-height: 1.5em;
+}
+
+.container img {
+  width: 200px;
+  height: 300px;
+  margin: 1em 0;
+}
+
+.container button {
+  cursor: pointer;
+  background-image: linear-gradient(45deg, #fff, #eee);
+  border: none;
+  border-radius: .5em;
+  margin-top: 3em;
+  padding: .5em 1em;
+  font-size: 1em;
+  box-shadow: 0 .1em .25em #eee;
+}
+
+.register-sec {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.register-sec h1 {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #eee, #aaa);
+  font-size: 6em;
+}
+
+.register-sec form {
+  width: 50vw;
+  flex-direction: column;
+  display: flex;
+}
+
+.register-sec form label {
+  display: none;
+}
+
+.register-sec form input {
+  border: none;
+  border-radius: .5em;
+  outline: none;
+  margin: 1em 0;
+  padding: 1em .5em;
+  font-size: 1em;
+  font-weight: 600;
+  box-shadow: 0 .1em .25em #eee;
+}
+
+.register-sec form button {
+  width: 25%;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, #fff, #eee);
+  border: none;
+  border-radius: .5em;
+  align-self: center;
+  margin-top: 4em;
+  padding: 1em 0;
+  font-size: 1em;
+  font-weight: 600;
+  box-shadow: 0 .1em .25em #eee;
+}
 
 .login-sec {
   width: 100vw;
@@ -89,74 +197,22 @@
   box-shadow: 0 .1em .25em #eee;
 }
 
-
-
-.container {
-  width: 90vw;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  display: flex;
+.movies-container {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5% 10%;
+  padding: 50px 100px;
+  display: grid;
 }
 
-.container h2 {
-  margin-bottom: .25em;
-  font-size: 6em;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Merriweather, serif;
 }
 
-.container p {
-  width: 50%;
-  text-align: center;
-  line-height: 1.5em;
-}
-
-.container img {
-  width: 200px;
-  height: 300px;
-  margin: 1em 0;
-}
-
-.container button {
-  cursor: pointer;
-  background-image: linear-gradient(45deg, #fff, #eee);
-  border: none;
-  border-radius: .5em;
-  margin-top: 3em;
-  padding: .5em 1em;
-  font-size: 1em;
-  box-shadow: 0 .1em .25em #eee;
-}
-
-.movie {
-  text-align: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  display: flex;
-}
-
-.movie img {
-  width: 200px;
-  height: 300px;
-  border-radius: 1em;
-}
-
-.movie h1 {
-  padding: .5em 0;
-}
-
-.movie p {
-  line-height: 1.5em;
-}
-
-.movie button {
-  cursor: pointer;
-  background-image: linear-gradient(45deg, #fff, #eee);
-  border: none;
-  border-radius: .5em;
-  padding: 1em 2em;
-  font-weight: 600;
-  box-shadow: 0 .1em .25em #eee;
+body {
+  margin-top: 15vh;
 }
 
 /*# sourceMappingURL=index.b19eda78.css.map */

@@ -1,6 +1,6 @@
 import './movieView.scss';
 
-const MovieView = ({ movie, onBackClick }) => {
+const MovieView = ({ movie }) => {
   return (
     <>
     {movie ? (
@@ -8,7 +8,6 @@ const MovieView = ({ movie, onBackClick }) => {
         <h2>{movie.Title}</h2>
         <p>{movie.Description}</p>
         <img src={movie.ImageUrl}/>
-        <button onClick={() => onBackClick(false)}>Go Back</button>
       </div> ) : (
         <h1>No movie to show</h1>
       )}

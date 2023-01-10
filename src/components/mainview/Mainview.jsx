@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Router,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
-import { Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import axios from "axios";
 import Navigation from "../navigation/Navigation";
 import MovieCard from "../movieCard/MovieCard";
@@ -18,24 +12,26 @@ import Profile from "../profile/Profile";
 import "./mainView.scss";
 
 const Mainview = () => {
-  const [movies, setMovies] = useState(null);
-  const [selectedMovie, setSelectedMovie] = useState(false);
+  const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(false);
+  const productionUrl = "https://my-flix-production.up.railway.app/";
+  const devUrl = "http://localhost:8080/";
 
   useEffect(() => {
     axios
-      .get("my-flix-production.up.railway.app/movies", {
+      .get(`${productionUrl}movies`, {
         headers: {
+          Accept: "application/json",
           "Content-Type": "application/json",
         },
       })
       .then((res) => {
-        console.log(res)
+        setMovies(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  const onLoggedin = (user) => {
+  const login = (user) => {
     setUser(user);
   };
 
@@ -43,7 +39,7 @@ const Mainview = () => {
 
   return (
     <BrowserRouter>
-      <Navigation />
+      <Navigation user={user} />
       <Routes>
         <Route
           path="/"
@@ -64,10 +60,10 @@ const Mainview = () => {
           element={
             <>
               {user ? (
-                <Navigate to="/movies" />
+                <Navigate to="/movies" replace />
               ) : (
                 <Col md={5}>
-                  <LoginView onLoggedin={(user) => onLoggedin(user)} />
+                  <LoginView onLoggedin={(user) => login(user)} />
                 </Col>
               )}
             </>
@@ -75,28 +71,24 @@ const Mainview = () => {
         />
         <Route
           path="/movies"
-          elemet={
+          element={
             <>
               {!user ? (
                 <Navigate to="/login" replace />
               ) : (
                 <>
                   {movies.length < 1 ? (
-                    <Col>
+                    <>
                       <BounceLoader />
-                    </Col>
+                    </>
                   ) : (
-                    <Col md={8}>
-                      {movies.map((movie) => (
-                        <MovieCard
-                          key={movie._id}
-                          movie={movie}
-                          onMovieClick={(newSelectedMovie) => {
-                            setSelectedMovie(newSelectedMovie);
-                          }}
-                        />
-                      ))}
-                    </Col>
+                    <>
+                      <section className="movies-container">
+                        {movies.map((movie) => (
+                          <MovieCard key={movie._id} movie={movie} />
+                        ))}
+                      </section>
+                    </>
                   )}
                 </>
               )}
@@ -104,7 +96,7 @@ const Mainview = () => {
           }
         />
         <Route
-          path="profile"
+          path="/profile"
           element={
             <>
               {!user ? (
@@ -117,6 +109,8 @@ const Mainview = () => {
             </>
           }
         />
+        <Route path="/logout" element={<LoginView />} />
+        <Route path="/movies/:title" element={<MovieView />} />
       </Routes>
     </BrowserRouter>
   );

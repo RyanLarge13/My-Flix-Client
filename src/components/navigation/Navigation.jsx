@@ -16,7 +16,10 @@ const Navigation = ({ user }) => {
               <Link to="/movies">Movies</Link>
             </li>
             <li>
-              <Link to="/profile"></Link>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/logout">Logout</Link>
             </li>
           </ul>
         </Navbar>

@@ -1,6 +1,6 @@
-import "./registerView.scss";
-
 import React, { useState, useEffect } from "react";
+import { Col, Row } from "react-bootstrap";
+import "./registerView.scss";
 
 const RegisterView = () => {
   const [email, setEmail] = useState("");
@@ -14,8 +14,8 @@ const RegisterView = () => {
   const changePass = (e) => {};
 
   return (
-    <>
-      <h1>Register!</h1>
+    <section className="register-sec">
+      <h1>Sign up</h1>
       <form>
         <label htmlFor="email">Email</label>
         <input
@@ -46,7 +46,7 @@ const RegisterView = () => {
         />
         <button type="submit">Register</button>
       </form>
-    </>
+    </section>
   );
 };
 
