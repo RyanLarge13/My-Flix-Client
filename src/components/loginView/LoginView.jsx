@@ -1,21 +1,25 @@
 import React, { useState } from "react";
-import RegisterView from "../registerView/RegisterView";
+import Axios from "axios";
 import "./loginview.scss";
 
 const LoginView = ({ onLoggedin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onLoggedin(username);
+    Axios.post("http://localhost:8080/login", {
+      params: { username: username, password: password },
+    })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   return (
     <>
       <section className="login-sec">
         <h1>Login</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -34,9 +38,7 @@ const LoginView = ({ onLoggedin }) => {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" onClick={handleSubmit}>
-            Login
-          </button>
+          <button type="submit">Login</button>
         </form>
       </section>
     </>

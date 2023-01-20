@@ -19,7 +19,7 @@ const Mainview = () => {
 
   useEffect(() => {
     axios
-      .get(`${productionUrl}movies`, {
+      .get(`${devUrl}movies`, {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",

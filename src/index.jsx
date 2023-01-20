@@ -1,11 +1,9 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import Mainview from './components/mainview/Mainview';
-import './index.scss';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import Mainview from "./components/mainview/Mainview";
+import "./index.scss";
 
 class MyFlixApplication extends React.Component {
-
-  
   render() {
     return (
       <div className="my-flix">
@@ -15,7 +13,7 @@ class MyFlixApplication extends React.Component {
   }
 }
 
-const container = document.getElementsByClassName('app-container')[0];
+const container = document.getElementsByClassName("app-container")[0];
 const root = createRoot(container);
 
 root.render(React.createElement(MyFlixApplication));
