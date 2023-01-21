@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import { Col } from "react-bootstrap";
-import axios from "axios";
+import { Toast } from "react-toastify";
+import Axios from "axios";
 import Navigation from "../navigation/Navigation";
 import MovieCard from "../movieCard/MovieCard";
 import MovieView from "../movieView/MovieView";
@@ -18,24 +19,43 @@ const Mainview = () => {
   const devUrl = "http://localhost:8080/";
 
   useEffect(() => {
-    axios
-      .get(`${devUrl}movies`, {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      })
+    const username = localStorage.getItem("Username");
+    const token = localStorage.getItem("Token");
+    fetchMovies();
+
+    if (!token || !username) return;
+
+    fetchUser(username, token);
+  }, []);
+
+  const fetchMovies = () => {
+    Axios.get(`${devUrl}movies`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => {
         setMovies(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
-
-  const login = (user) => {
-    setUser(user);
   };
 
-  // if (!user) return <LoginView onLoggedin={(user) => onLoggedin(user)} />;
+  const fetchUser = (username, token) => {
+    Axios.get(`http://localhost:8080/users/${username}`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => setUser(res.data))
+      .catch((err) => console.log(err));
+  };
+
+  const login = (user) => {
+    if (!user) return Toast.error("No user. Try to signing in again.");
+    setUser(user);
+  };
 
   return (
     <BrowserRouter>
@@ -63,7 +83,7 @@ const Mainview = () => {
                 <Navigate to="/movies" replace />
               ) : (
                 <Col md={5}>
-                  <LoginView onLoggedin={(user) => login(user)} />
+                  <LoginView onLoggedIn={(user) => login(user)} />
                 </Col>
               )}
             </>
@@ -109,7 +129,10 @@ const Mainview = () => {
             </>
           }
         />
-        <Route path="/logout" element={<LoginView />} />
+        <Route
+          path="/logout"
+          element={<LoginView onLoggedIn={(user) => login(user)} />}
+        />
         <Route path="/movies/:title" element={<MovieView />} />
       </Routes>
     </BrowserRouter>

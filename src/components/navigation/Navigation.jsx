@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import "./navigation.scss";
 
 const Navigation = ({ user }) => {
+  const logout = () => {
+    localStorage.removeItem("Token");
+    localStorage.removeItem("Username");
+    setTimeout(() => {
+      window.location.href = "/login";
+    }, 100);
+  };
   return (
     <>
       {user ? (
@@ -19,7 +26,7 @@ const Navigation = ({ user }) => {
               <Link to="/profile">Profile</Link>
             </li>
             <li>
-              <Link to="/logout">Logout</Link>
+              <Link onClick={logout}>Logout</Link>
             </li>
           </ul>
         </Navbar>

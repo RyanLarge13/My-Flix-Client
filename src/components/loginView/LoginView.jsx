@@ -2,17 +2,27 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "./loginview.scss";
 
-const LoginView = ({ onLoggedin }) => {
+const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     Axios.post("http://localhost:8080/login", {
-      params: { username: username, password: password },
+      username: username,
+      password: password,
     })
-      .then((res) => console.log(res))
+      .then((res) => {
+        handleUser(res.data);
+      })
       .catch((err) => console.log(err));
+  };
+
+  const handleUser = (userData) => {
+    localStorage.setItem("Token", userData.token);
+    localStorage.setItem("Username", userData.user);
+    const user = userData.user;
+    onLoggedIn(user);
   };
 
   return (
@@ -25,16 +35,16 @@ const LoginView = ({ onLoggedin }) => {
             type="text"
             name="username"
             id="username"
-            value={username}
             placeholder="Username"
             onChange={(e) => setUsername(e.target.value)}
+            required
+            autoFocus
           />
           <label htmlFor="password">Password:</label>
           <input
             type="password"
             name="password"
             id="password"
-            value={password}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
