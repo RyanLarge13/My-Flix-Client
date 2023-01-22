@@ -32168,7 +32168,6 @@ function CircleLoader(_a) {
             transition: "2s",
             top: "".concat(i * 1.75, "%"),
             left: "".concat(i * 0.875, "%"),
-            animationFillMode: "",
             animation: "".concat(circle, " ").concat(1 / speedMultiplier, "s ").concat(i * 0.2 / speedMultiplier, "s infinite linear")
         };
     };
@@ -32865,8 +32864,8 @@ function PacmanLoader(_a) {
         display: "inherit",
         position: "relative",
         fontSize: 0,
-        height: (0, _unitConverter.cssValue)(size),
-        width: (0, _unitConverter.cssValue)(size)
+        height: "".concat(value * 2).concat(unit),
+        width: "".concat(value * 2).concat(unit)
     }, cssOverride);
     var ball = (0, _animation.createAnimation)("PacmanLoader", "75% {opacity: 0.7}\n    100% {transform: translate(".concat("".concat(-4 * value).concat(unit), ", ").concat("".concat(-value / 4).concat(unit), ")}"), "ball");
     var ballStyle = function(i) {
@@ -63349,7 +63348,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _movieCardScss = require("./movieCard.scss");
-const MovieCard = ({ movie , onMovieClick  })=>{
+const MovieCard = ({ movie  })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "movie",
@@ -63375,14 +63374,6 @@ const MovieCard = ({ movie , onMovieClick  })=>{
                     fileName: "src/components/movieCard/MovieCard.jsx",
                     lineNumber: 14,
                     columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    onClick: ()=>onMovieClick(movie),
-                    children: "View More"
-                }, void 0, false, {
-                    fileName: "src/components/movieCard/MovieCard.jsx",
-                    lineNumber: 15,
-                    columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
@@ -63398,8 +63389,7 @@ MovieCard.propTypes = {
         Title: (0, _propTypes.PropTypes).string.isRequired,
         Description: (0, _propTypes.PropTypes).string.isRequired,
         ImageUrl: (0, _propTypes.PropTypes).string.isRequired
-    }).isRequired,
-    onMovieClick: (0, _propTypes.PropTypes).func.isRequired
+    }).isRequired
 };
 exports.default = MovieCard;
 var _c;
@@ -63420,8 +63410,18 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactSpinners = require("react-spinners");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _movieViewScss = require("./movieView.scss");
-const MovieView = ({ movie  })=>{
+var _s = $RefreshSig$();
+const MovieView = ({ title  })=>{
+    _s();
+    const [movie, setMovie] = (0, _react.useState)(false);
+    (0, _react.useEffect)(()=>{
+        (0, _axiosDefault.default).get(`http://localhost:8080/movies/${title}`).then((res)=>setMovie(res.data.data)).catch((err)=>console.log(err));
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: movie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "container",
@@ -63430,37 +63430,36 @@ const MovieView = ({ movie  })=>{
                     children: movie.Title
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 8,
-                    columnNumber: 9
+                    lineNumber: 19,
+                    columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: movie.Description
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 9,
-                    columnNumber: 9
+                    lineNumber: 20,
+                    columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: movie.ImageUrl
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 10,
-                    columnNumber: 9
+                    lineNumber: 21,
+                    columnNumber: 11
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movieView/MovieView.jsx",
-            lineNumber: 7,
-            columnNumber: 7
-        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
-            children: "No movie to show"
-        }, void 0, false, {
+            lineNumber: 18,
+            columnNumber: 9
+        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpinners.BounceLoader), {}, void 0, false, {
             fileName: "src/components/movieView/MovieView.jsx",
-            lineNumber: 12,
+            lineNumber: 24,
             columnNumber: 9
         }, undefined)
     }, void 0, false);
 };
+_s(MovieView, "GXt/844jEZt4KX5EGyAuU0rvlCc=");
 _c = MovieView;
 exports.default = MovieView;
 var _c;
@@ -63471,7 +63470,7 @@ $RefreshReg$(_c, "MovieView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./movieView.scss":"73oGt","@parcel/transformer-js/src/esmodule-helpers.js":"ljnlO","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hKZJm"}],"73oGt":[function() {},{}],"iKcw9":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./movieView.scss":"73oGt","@parcel/transformer-js/src/esmodule-helpers.js":"ljnlO","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hKZJm","react":"21dqq","axios":"jo6P5","react-spinners":"Q9MKS"}],"73oGt":[function() {},{}],"iKcw9":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4770 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
