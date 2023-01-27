@@ -14,6 +14,7 @@ import "./mainView.scss";
 
 const Mainview = () => {
   const [movies, setMovies] = useState([]);
+  const [title, setTitle] = useState(null);
   const [user, setUser] = useState(false);
   const productionUrl = "https://my-flix-production.up.railway.app/";
   const devUrl = "http://localhost:8080/";
@@ -55,6 +56,11 @@ const Mainview = () => {
   const login = (user) => {
     if (!user) return Toast.error("No user. Try to signing in again.");
     setUser(user);
+  };
+
+  const setNewTitle = (title) => {
+    setTitle(title);
+    window.location.href = `http://localhost:8080/movies/${title}`;
   };
 
   return (
@@ -105,7 +111,11 @@ const Mainview = () => {
                     <>
                       <section className="movies-container">
                         {movies.map((movie) => (
-                          <MovieCard key={movie._id} movie={movie} />
+                          <MovieCard
+                            key={movie._id}
+                            movie={movie}
+                            addTitle={(title) => setNewTitle(title)}
+                          />
                         ))}
                       </section>
                     </>
@@ -133,7 +143,7 @@ const Mainview = () => {
           path="/logout"
           element={<LoginView onLoggedIn={(user) => login(user)} />}
         />
-        <Route path="/movies/:title" element={<MovieView />} />
+        <Route path="/movies/:title" element={<MovieView title={title} />} />
       </Routes>
     </BrowserRouter>
   );

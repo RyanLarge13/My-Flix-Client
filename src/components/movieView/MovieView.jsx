@@ -4,11 +4,18 @@ import Axios from "axios";
 import "./movieView.scss";
 
 const MovieView = ({ title }) => {
-  const [movie, setMovie] = useState(false);
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    Axios.get(`http://localhost:8080/movies/${title}`)
-      .then((res) => setMovie(res.data.data))
+    const token = localStorage.getItem("Token");
+
+    Axios.get(`http://localhost:8080/movies/${title}`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => setMovie(res.data))
       .catch((err) => console.log(err));
   }, []);
 
