@@ -1,16 +1,8 @@
 import React, { useState } from "react";
 import { PropTypes } from "prop-types";
-import MovieView from "../movieView/MovieView";
-import Axios from "axios";
 import "./movieCard.scss";
 
-const MovieCard = ({ movie, addTitle }) => {
-  const [title, setTitle] = useState(null);
-
-  const setTitleState = (title) => {
-    addTitle(title);
-  };
-
+const MovieCard = ({ movie }) => {
   return (
     <>
       <div className="movie">
@@ -20,7 +12,6 @@ const MovieCard = ({ movie, addTitle }) => {
         />
         <h1>{movie.Title}</h1>
         <p>{movie.Description}</p>
-        <button onClick={() => setTitleState(movie.Title)}>View</button>
       </div>
     </>
   );

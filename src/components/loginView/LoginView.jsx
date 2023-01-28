@@ -8,7 +8,9 @@ const LoginView = ({ onLoggedIn }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    Axios.post("http://localhost:8080/login", {
+    const productionUrl = "https://my-flix-production.up.railway.app/";
+
+    Axios.post(`${productionUrl}login`, {
       username: username,
       password: password,
     })

@@ -3,13 +3,15 @@ import { BounceLoader } from "react-spinners";
 import Axios from "axios";
 import "./movieView.scss";
 
-const MovieView = ({ title }) => {
+const MovieView = () => {
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("Token");
+    const title = document.URL.split("/").pop();
+    const productionUrl = "https://my-flix-production.up.railway.app/";
 
-    Axios.get(`http://localhost:8080/movies/${title}`, {
+    Axios.get(`${productionUrl}movies/${title}`, {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${token}`,

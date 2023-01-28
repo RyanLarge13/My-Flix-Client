@@ -8,7 +8,9 @@ const Profile = () => {
   useEffect(() => {
     const token = localStorage.getItem("Token");
     const username = localStorage.getItem("Username");
-    Axios.get(`http://localhost:8080/users/${username}`, {
+    const productionUrl = "https://my-flix-production.up.railway.app/";
+
+    Axios.get(`${productionUrl}users/${username}`, {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${token}`,
