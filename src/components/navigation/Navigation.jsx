@@ -17,9 +17,6 @@ const Navigation = ({ user }) => {
         <Navbar className="nav">
           <ul>
             <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
               <Link to="/movies">Movies</Link>
             </li>
             <li>

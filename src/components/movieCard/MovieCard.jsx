@@ -3,6 +3,9 @@ import { PropTypes } from "prop-types";
 import "./movieCard.scss";
 
 const MovieCard = ({ movie }) => {
+  const productionUrl = "https://my-flix-production.up.railway.app/";
+  const devUrl = "http://localhost:8080/";
+
   return (
     <>
       <div className="movie">
@@ -12,6 +15,9 @@ const MovieCard = ({ movie }) => {
         />
         <h1>{movie.Title}</h1>
         <p>{movie.Description}</p>
+        <a href={`http://localhost:1234/movies/${movie.Title}`}>
+          <button>View More</button>
+        </a>
       </div>
     </>
   );

@@ -6,11 +6,13 @@ import "./movieView.scss";
 const MovieView = () => {
   const [movie, setMovie] = useState(null);
 
-  useEffect(() => {
-    const token = localStorage.getItem("Token");
-    const title = document.URL.split("/").pop();
-    const productionUrl = "https://my-flix-production.up.railway.app/";
+  const token = localStorage.getItem("Token");
+  const username = localStorage.getItem("Username");
+  const title = document.URL.split("/").pop();
+  const productionUrl = "https://my-flix-production.up.railway.app/";
+  const devUrl = "http://localhost:8080/";
 
+  useEffect(() => {
     Axios.get(`${productionUrl}movies/${title}`, {
       headers: {
         Accept: "application/json",
@@ -21,6 +23,17 @@ const MovieView = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const addFavorite = (id) => {
+    Axios.post(`${productionUrl}users/${username}/movies/${id}`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <>
       {movie ? (
@@ -28,6 +41,9 @@ const MovieView = () => {
           <h2>{movie.Title}</h2>
           <p>{movie.Description}</p>
           <img src={movie.ImageUrl} />
+          <button onClick={() => addFavorite(movie._id)}>
+            Add To Favorites
+          </button>
         </div>
       ) : (
         <BounceLoader />

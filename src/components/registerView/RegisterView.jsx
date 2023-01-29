@@ -15,7 +15,7 @@ const RegisterView = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`${devUrl}users`, {
+    Axios.post(`${productionUrl}users`, {
       Username: username,
       Password: password,
       Email: email,

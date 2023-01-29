@@ -42,7 +42,7 @@ const Mainview = () => {
   };
 
   const fetchUser = (username, token) => {
-    Axios.get(`http://localhost:8080/users/${username}`, {
+    Axios.get(`${productionUrl}users/${username}`, {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${token}`,
