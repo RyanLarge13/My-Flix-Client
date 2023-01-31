@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
 import { Col } from "react-bootstrap";
-import { Toast } from "react-toastify";
+import { toast } from "react-toastify";
 import Axios from "axios";
 import Navigation from "../navigation/Navigation";
 import MovieCard from "../movieCard/MovieCard";
@@ -53,7 +53,7 @@ const Mainview = () => {
   };
 
   const login = (user) => {
-    if (!user) return Toast.error("No user. Try to signing in again.");
+    if (!user) return toast.error("No user. Try to signing in again.");
     setUser(user);
   };
 
