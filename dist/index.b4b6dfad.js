@@ -63435,9 +63435,10 @@ const MovieView = ()=>{
         }).then((res)=>setMovie(res.data)).catch((err)=>console.log(err));
     }, []);
     const addFavorite = (id)=>{
-        (0, _axiosDefault.default).post(`${devUrl}users/${username}/movies/${id}`, {
+        (0, _axiosDefault.default).post(`${productionUrl}users/${username}/movies/${id}`, {
+            Accept: "application/json"
+        }, {
             headers: {
-                Accept: "application/json",
                 Authorization: `Bearer ${token}`
             }
         }).then((res)=>console.log(res.data)).catch((err)=>console.log(err));
@@ -63450,21 +63451,21 @@ const MovieView = ()=>{
                     children: movie.Title
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 41,
+                    lineNumber: 46,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                     children: movie.Description
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 42,
+                    lineNumber: 47,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: movie.ImageUrl
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 43,
+                    lineNumber: 48,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -63472,17 +63473,17 @@ const MovieView = ()=>{
                     children: "Add To Favorites"
                 }, void 0, false, {
                     fileName: "src/components/movieView/MovieView.jsx",
-                    lineNumber: 44,
+                    lineNumber: 49,
                     columnNumber: 11
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movieView/MovieView.jsx",
-            lineNumber: 40,
+            lineNumber: 45,
             columnNumber: 9
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpinners.BounceLoader), {}, void 0, false, {
             fileName: "src/components/movieView/MovieView.jsx",
-            lineNumber: 49,
+            lineNumber: 54,
             columnNumber: 9
         }, undefined)
     }, void 0, false);
@@ -63813,6 +63814,7 @@ var _react = require("react");
 var _reactSpinners = require("react-spinners");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _profileScss = require("./profile.scss");
 var _s = $RefreshSig$();
 const Profile = ()=>{
     _s();
@@ -63829,17 +63831,43 @@ const Profile = ()=>{
         }).then((res)=>setUser(res.data)).catch((err)=>console.log(err));
     }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
+        className: "profile",
         children: user ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "Profile"
+                }, void 0, false, {
+                    fileName: "src/components/profile/Profile.jsx",
+                    lineNumber: 29,
+                    columnNumber: 11
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                     className: "username",
                     children: user.Username
                 }, void 0, false, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 28,
+                    lineNumber: 30,
+                    columnNumber: 11
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    children: [
+                        "Welcome to your ",
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                            children: "My Flix"
+                        }, void 0, false, {
+                            fileName: "src/components/profile/Profile.jsx",
+                            lineNumber: 32,
+                            columnNumber: 29
+                        }, undefined),
+                        " profile. Below is a complete list of your favorite movies"
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/profile/Profile.jsx",
+                    lineNumber: 31,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "favorite-movies",
                     children: user.FavoriteMovies.length > 0 ? user.FavoriteMovies.map((movie, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -63847,65 +63875,87 @@ const Profile = ()=>{
                                     alt: "favorite movie photo"
                                 }, void 0, false, {
                                     fileName: "src/components/profile/Profile.jsx",
-                                    lineNumber: 33,
+                                    lineNumber: 39,
                                     columnNumber: 19
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                                     children: movie.Title
                                 }, void 0, false, {
                                     fileName: "src/components/profile/Profile.jsx",
-                                    lineNumber: 34,
+                                    lineNumber: 40,
                                     columnNumber: 19
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                     children: movie.Description
                                 }, void 0, false, {
                                     fileName: "src/components/profile/Profile.jsx",
-                                    lineNumber: 35,
+                                    lineNumber: 41,
+                                    columnNumber: 19
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    children: "Remove"
+                                }, void 0, false, {
+                                    fileName: "src/components/profile/Profile.jsx",
+                                    lineNumber: 42,
                                     columnNumber: 19
                                 }, undefined)
                             ]
-                        }, movie._id, true, {
+                        }, index, true, {
                             fileName: "src/components/profile/Profile.jsx",
-                            lineNumber: 32,
+                            lineNumber: 38,
                             columnNumber: 17
                         }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                         children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                                 children: "Add a new favorite movie to your list!"
                             }, void 0, false, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 40,
+                                lineNumber: 47,
                                 columnNumber: 17
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
                                 href: "http://localhost:1234/movies",
-                                children: "See Movies"
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    className: "see-movies",
+                                    children: "See Movies"
+                                }, void 0, false, {
+                                    fileName: "src/components/profile/Profile.jsx",
+                                    lineNumber: 49,
+                                    columnNumber: 19
+                                }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 41,
+                                lineNumber: 48,
                                 columnNumber: 17
                             }, undefined)
                         ]
                     }, void 0, true)
                 }, void 0, false, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 29,
+                    lineNumber: 35,
+                    columnNumber: 11
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                    className: "danger",
+                    children: "Delete Profile"
+                }, void 0, false, {
+                    fileName: "src/components/profile/Profile.jsx",
+                    lineNumber: 54,
                     columnNumber: 11
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/profile/Profile.jsx",
-            lineNumber: 27,
+            lineNumber: 28,
             columnNumber: 9
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpinners.DotLoader), {}, void 0, false, {
             fileName: "src/components/profile/Profile.jsx",
-            lineNumber: 47,
+            lineNumber: 57,
             columnNumber: 9
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/profile/Profile.jsx",
-        lineNumber: 25,
+        lineNumber: 26,
         columnNumber: 5
     }, undefined);
 };
@@ -63920,6 +63970,6 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"ljnlO","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hKZJm","react-spinners":"Q9MKS"}],"g7Oul":[function() {},{}],"lJZlQ":[function() {},{}]},["1RXc6","s751a","d8Dch"], "d8Dch", "parcelRequiree3ea")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"ljnlO","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hKZJm","react-spinners":"Q9MKS","./profile.scss":"5LVpS"}],"5LVpS":[function() {},{}],"g7Oul":[function() {},{}],"lJZlQ":[function() {},{}]},["1RXc6","s751a","d8Dch"], "d8Dch", "parcelRequiree3ea")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

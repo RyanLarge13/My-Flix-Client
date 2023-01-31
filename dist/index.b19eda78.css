@@ -906,6 +906,67 @@
   }
 }
 
+.profile {
+  padding: 0 1em;
+}
+
+.profile h1 {
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+
+.profile h2 {
+  margin-top: 5%;
+}
+
+.profile .username {
+  margin-bottom: .5em;
+  font-size: 3em;
+}
+
+.profile .favorite-movies {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+  display: flex;
+}
+
+.profile .favorite-movies .see-movies {
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  margin-top: 2em;
+  padding: 1em 2em;
+  transition: all .25s ease-in-out;
+  box-shadow: 0 .25em .5em #0000004d;
+}
+
+.profile .favorite-movies .see-movies:hover {
+  background-color: #eee;
+}
+
+.profile .danger {
+  cursor: pointer;
+  background-color: #f77;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  padding: 1em 2em;
+  font-weight: 600;
+  transition: all .25s ease-in-out;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  box-shadow: 0 .25em .5em #0000004d;
+}
+
+.profile .danger:hover {
+  background-color: #f55;
+}
+
 .movies-container {
   grid-template-columns: repeat(3, 1fr);
   gap: 5% 10%;

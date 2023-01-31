@@ -24,12 +24,17 @@ const MovieView = () => {
   }, []);
 
   const addFavorite = (id) => {
-    Axios.post(`${productionUrl}users/${username}/movies/${id}`, {
-      headers: {
+    Axios.post(
+      `${productionUrl}users/${username}/movies/${id}`,
+      {
         Accept: "application/json",
-        Authorization: `Bearer ${token}`,
       },
-    })
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };

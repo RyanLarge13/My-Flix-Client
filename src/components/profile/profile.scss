@@ -1,0 +1,62 @@
+.profile {
+    // position: relative
+    padding: 0 1em;
+
+    h1 {
+        text-align: center;
+        border-bottom: 1px solid black;
+    }
+
+    h2 {
+        margin-top: 5%;
+    }
+
+    .username {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+    }
+
+    .favorite-movies {
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .see-movies {
+            margin-top: 2em;
+            padding: 1em 2em;
+            border-radius: 10px;
+            background-color: #fff;
+            border: none;
+            outline: none;
+            box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: 250ms ease-in-out;
+
+            &:hover {
+                background-color: #eee;
+            }
+        }
+
+    }
+
+    .danger {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        background-color: #f77;
+        font-weight: 600;
+        padding: 1em 2em;
+        transition: 250ms ease-in-out;
+        cursor: pointer;
+        box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .danger:hover {
+        background-color: #f55;
+    }
+}
