@@ -15,17 +15,18 @@ import "./mainView.scss";
 const Mainview = () => {
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(false);
+
+  const username = localStorage.getItem("Username");
+  const token = localStorage.getItem("Token");
   const productionUrl = "https://my-flix-production.up.railway.app/";
   const devUrl = "http://localhost:8080/";
 
   useEffect(() => {
-    const username = localStorage.getItem("Username");
-    const token = localStorage.getItem("Token");
     fetchMovies();
 
     if (!token || !username) return;
 
-    fetchUser(username, token);
+    fetchUser();
   }, []);
 
   const fetchMovies = () => {
@@ -41,7 +42,7 @@ const Mainview = () => {
       .catch((err) => console.log(err));
   };
 
-  const fetchUser = (username, token) => {
+  const fetchUser = () => {
     Axios.get(`${productionUrl}users/${username}`, {
       headers: {
         Accept: "application/json",

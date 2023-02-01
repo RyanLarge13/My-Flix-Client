@@ -18,10 +18,14 @@
 
     .favorite-movies {
         margin-top: 5%;
+        padding: 0 10%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        .movie {
+            margin: 0 5%;
+        }
 
         .see-movies {
             margin-top: 2em;
@@ -42,9 +46,6 @@
     }
 
     .danger {
-        position: absolute;
-        bottom: 15px;
-        left: 15px;
         border: none;
         outline: none;
         border-radius: 10px;
@@ -54,9 +55,84 @@
         transition: 250ms ease-in-out;
         cursor: pointer;
         box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.3);
+        margin: 1em 0;
     }
 
     .danger:hover {
         background-color: #f55;
     }
+
+    .username-form {
+        max-width: 25%;
+        display: flex;
+        flex-direction: column;
+
+        input {
+            margin: 0.5em 0;
+            outline: none;
+            padding: 0.5em 0.75em;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0.1em 0.5em 0 #aaa;
+        }
+
+        button {
+            max-width: max-content;
+            padding: 0.5em 1em;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0.1em 0.5em 0 #aaa;
+        }
+    }
+
+    .backdrop {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .confirmation {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0.1em 0.5em 0 #aaa;
+            padding: 15px;
+
+            p {
+                margin-bottom: 1em;
+                max-width: 75%;
+                text-align: center;
+            }
+
+            button {
+                margin: 1em;
+                min-width: 50px;
+                padding: 1em 2em;
+                outline: none;
+                border: none;
+                background-color: #fff;
+                box-shadow: 0 0.1em 0.5em 0 #aaa;
+                cursor: pointer;
+                border-radius: 10px;
+                transition: 250ms ease-in-out;
+
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+
+            .bad {
+                background-color: #f55;
+            }
+        }
+    }
+
 }
