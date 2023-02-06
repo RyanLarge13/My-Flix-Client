@@ -9,6 +9,7 @@ const LoginView = ({ onLoggedIn }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const productionUrl = "https://my-flix-production.up.railway.app/";
+    const devUrl = "http://localhost:8080/";
 
     Axios.post(`${productionUrl}login`, {
       username: username,

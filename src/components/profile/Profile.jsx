@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { DotLoader } from "react-spinners";
+import { toast } from "react-toastify";
 import Axios from "axios";
 import "./profile.scss";
 
@@ -49,7 +50,7 @@ const Profile = () => {
       .then((res) => {
         localStorage.removeItem("Token");
         localStorage.removeItem("Username");
-        window.location.href = `${devUrl}`;
+        window.location.href = "http://localhost:1234/login/";
       })
       .catch((err) => console.log(err));
   };
@@ -64,7 +65,7 @@ const Profile = () => {
       .then((res) => {
         localStorage.removeItem("Token");
         localStorage.removeItem("Username");
-        window.location.href = `${devUrl}`;
+        window.location.href = "http://localhost:1234/";
       })
       .catch((err) => console.log(err));
   };
@@ -81,15 +82,25 @@ const Profile = () => {
   };
 
   const removeFav = (id) => {
-    Axios.delete(`${devUrl}${user.Username}/movies/${id}`, {
+    Axios.delete(`${productionUrl}${user.Username}/movies/${id}`, {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => {
-        console.log(res);
-        setShowFavorites(false);
+        const newList = favList.filter((movie) => movie._id !== id);
+        setFavList(newList);
+        toast.success("Succesfully deleted", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       })
       .catch((err) => console.log(err));
   };

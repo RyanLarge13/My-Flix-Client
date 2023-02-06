@@ -63496,6 +63496,7 @@ const LoginView = ({ onLoggedIn  })=>{
     const handleSubmit = async (e)=>{
         e.preventDefault();
         const productionUrl = "https://my-flix-production.up.railway.app/";
+        const devUrl = "http://localhost:8080/";
         (0, _axiosDefault.default).post(`${productionUrl}login`, {
             username: username,
             password: password
@@ -63517,7 +63518,7 @@ const LoginView = ({ onLoggedIn  })=>{
                     children: "Login"
                 }, void 0, false, {
                     fileName: "src/components/loginView/LoginView.jsx",
-                    lineNumber: 33,
+                    lineNumber: 34,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -63528,7 +63529,7 @@ const LoginView = ({ onLoggedIn  })=>{
                             children: "Username:"
                         }, void 0, false, {
                             fileName: "src/components/loginView/LoginView.jsx",
-                            lineNumber: 35,
+                            lineNumber: 36,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -63541,7 +63542,7 @@ const LoginView = ({ onLoggedIn  })=>{
                             autoFocus: true
                         }, void 0, false, {
                             fileName: "src/components/loginView/LoginView.jsx",
-                            lineNumber: 36,
+                            lineNumber: 37,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -63549,7 +63550,7 @@ const LoginView = ({ onLoggedIn  })=>{
                             children: "Password:"
                         }, void 0, false, {
                             fileName: "src/components/loginView/LoginView.jsx",
-                            lineNumber: 45,
+                            lineNumber: 46,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -63560,7 +63561,7 @@ const LoginView = ({ onLoggedIn  })=>{
                             onChange: (e)=>setPassword(e.target.value)
                         }, void 0, false, {
                             fileName: "src/components/loginView/LoginView.jsx",
-                            lineNumber: 46,
+                            lineNumber: 47,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -63568,19 +63569,19 @@ const LoginView = ({ onLoggedIn  })=>{
                             children: "Login"
                         }, void 0, false, {
                             fileName: "src/components/loginView/LoginView.jsx",
-                            lineNumber: 53,
+                            lineNumber: 54,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/loginView/LoginView.jsx",
-                    lineNumber: 34,
+                    lineNumber: 35,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/loginView/LoginView.jsx",
-            lineNumber: 32,
+            lineNumber: 33,
             columnNumber: 7
         }, undefined)
     }, void 0, false);
@@ -63786,6 +63787,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactSpinners = require("react-spinners");
+var _reactToastify = require("react-toastify");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _profileScss = require("./profile.scss");
@@ -63826,7 +63828,7 @@ const Profile = ()=>{
         }).then((res)=>{
             localStorage.removeItem("Token");
             localStorage.removeItem("Username");
-            window.location.href = `${devUrl}`;
+            window.location.href = "http://localhost:1234/login/";
         }).catch((err)=>console.log(err));
     };
     const deleteUser = ()=>{
@@ -63838,7 +63840,7 @@ const Profile = ()=>{
         }).then((res)=>{
             localStorage.removeItem("Token");
             localStorage.removeItem("Username");
-            window.location.href = `${devUrl}`;
+            window.location.href = "http://localhost:1234/";
         }).catch((err)=>console.log(err));
     };
     const callMovies = ()=>{
@@ -63857,8 +63859,18 @@ const Profile = ()=>{
                 Authorization: `Bearer ${token}`
             }
         }).then((res)=>{
-            console.log(res);
-            setShowFavorites(false);
+            const newList = favList.filter((movie)=>movie._id !== id);
+            setFavList(newList);
+            (0, _reactToastify.toast).success("Succesfully deleted", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light"
+            });
         }).catch((err)=>console.log(err));
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
@@ -63869,7 +63881,7 @@ const Profile = ()=>{
                     children: "Profile"
                 }, void 0, false, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 101,
+                    lineNumber: 112,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
@@ -63877,7 +63889,7 @@ const Profile = ()=>{
                     children: user.Username
                 }, void 0, false, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 102,
+                    lineNumber: 113,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -63887,14 +63899,14 @@ const Profile = ()=>{
                             children: "My Flix"
                         }, void 0, false, {
                             fileName: "src/components/profile/Profile.jsx",
-                            lineNumber: 104,
+                            lineNumber: 115,
                             columnNumber: 29
                         }, undefined),
                         " profile. Below is a complete list of your favorite movies"
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 103,
+                    lineNumber: 114,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
@@ -63905,7 +63917,7 @@ const Profile = ()=>{
                             children: "Username"
                         }, void 0, false, {
                             fileName: "src/components/profile/Profile.jsx",
-                            lineNumber: 108,
+                            lineNumber: 119,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -63916,7 +63928,7 @@ const Profile = ()=>{
                             value: newUsername
                         }, void 0, false, {
                             fileName: "src/components/profile/Profile.jsx",
-                            lineNumber: 109,
+                            lineNumber: 120,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -63924,13 +63936,13 @@ const Profile = ()=>{
                             children: "Change Username"
                         }, void 0, false, {
                             fileName: "src/components/profile/Profile.jsx",
-                            lineNumber: 116,
+                            lineNumber: 127,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 107,
+                    lineNumber: 118,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -63943,21 +63955,21 @@ const Profile = ()=>{
                                     alt: "favorite movie photo"
                                 }, void 0, false, {
                                     fileName: "src/components/profile/Profile.jsx",
-                                    lineNumber: 123,
+                                    lineNumber: 134,
                                     columnNumber: 21
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
                                     children: movie.Title
                                 }, void 0, false, {
                                     fileName: "src/components/profile/Profile.jsx",
-                                    lineNumber: 124,
+                                    lineNumber: 135,
                                     columnNumber: 21
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                     children: movie.Description
                                 }, void 0, false, {
                                     fileName: "src/components/profile/Profile.jsx",
-                                    lineNumber: 125,
+                                    lineNumber: 136,
                                     columnNumber: 21
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -63965,13 +63977,13 @@ const Profile = ()=>{
                                     children: "Remove"
                                 }, void 0, false, {
                                     fileName: "src/components/profile/Profile.jsx",
-                                    lineNumber: 126,
+                                    lineNumber: 137,
                                     columnNumber: 21
                                 }, undefined)
                             ]
                         }, index, true, {
                             fileName: "src/components/profile/Profile.jsx",
-                            lineNumber: 122,
+                            lineNumber: 133,
                             columnNumber: 19
                         }, undefined)) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
                         children: [
@@ -63979,7 +63991,7 @@ const Profile = ()=>{
                                 children: "Add a new favorite movie to your list!"
                             }, void 0, false, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 131,
+                                lineNumber: 142,
                                 columnNumber: 19
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
@@ -63989,12 +64001,12 @@ const Profile = ()=>{
                                     children: "See Movies"
                                 }, void 0, false, {
                                     fileName: "src/components/profile/Profile.jsx",
-                                    lineNumber: 133,
+                                    lineNumber: 144,
                                     columnNumber: 21
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 132,
+                                lineNumber: 143,
                                 columnNumber: 19
                             }, undefined)
                         ]
@@ -64004,17 +64016,17 @@ const Profile = ()=>{
                             children: "Show movies"
                         }, void 0, false, {
                             fileName: "src/components/profile/Profile.jsx",
-                            lineNumber: 139,
+                            lineNumber: 150,
                             columnNumber: 17
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/profile/Profile.jsx",
-                        lineNumber: 138,
+                        lineNumber: 149,
                         columnNumber: 15
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 118,
+                    lineNumber: 129,
                     columnNumber: 11
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -64023,7 +64035,7 @@ const Profile = ()=>{
                     children: "Delete Profile"
                 }, void 0, false, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 143,
+                    lineNumber: 154,
                     columnNumber: 11
                 }, undefined),
                 confirm && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -64039,7 +64051,7 @@ const Profile = ()=>{
                                 ]
                             }, void 0, true, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 149,
+                                lineNumber: 160,
                                 columnNumber: 17
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -64048,7 +64060,7 @@ const Profile = ()=>{
                                 children: "Yes"
                             }, void 0, false, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 153,
+                                lineNumber: 164,
                                 columnNumber: 17
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -64056,18 +64068,18 @@ const Profile = ()=>{
                                 children: "No"
                             }, void 0, false, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 156,
+                                lineNumber: 167,
                                 columnNumber: 17
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile/Profile.jsx",
-                        lineNumber: 148,
+                        lineNumber: 159,
                         columnNumber: 15
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 147,
+                    lineNumber: 158,
                     columnNumber: 13
                 }, undefined),
                 deleteConfirm && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -64079,7 +64091,7 @@ const Profile = ()=>{
                                 children: "Are you sure you want to delete your account?"
                             }, void 0, false, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 163,
+                                lineNumber: 174,
                                 columnNumber: 17
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -64088,7 +64100,7 @@ const Profile = ()=>{
                                 children: "Yes"
                             }, void 0, false, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 164,
+                                lineNumber: 175,
                                 columnNumber: 17
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -64096,33 +64108,33 @@ const Profile = ()=>{
                                 children: "No"
                             }, void 0, false, {
                                 fileName: "src/components/profile/Profile.jsx",
-                                lineNumber: 167,
+                                lineNumber: 178,
                                 columnNumber: 17
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/profile/Profile.jsx",
-                        lineNumber: 162,
+                        lineNumber: 173,
                         columnNumber: 15
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/components/profile/Profile.jsx",
-                    lineNumber: 161,
+                    lineNumber: 172,
                     columnNumber: 13
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/profile/Profile.jsx",
-            lineNumber: 100,
+            lineNumber: 111,
             columnNumber: 9
         }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactSpinners.DotLoader), {}, void 0, false, {
             fileName: "src/components/profile/Profile.jsx",
-            lineNumber: 173,
+            lineNumber: 184,
             columnNumber: 9
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/profile/Profile.jsx",
-        lineNumber: 98,
+        lineNumber: 109,
         columnNumber: 5
     }, undefined);
 };
@@ -64137,6 +64149,6 @@ $RefreshReg$(_c, "Profile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-spinners":"Q9MKS","./profile.scss":"5LVpS"}],"5LVpS":[function() {},{}],"g7Oul":[function() {},{}],"lJZlQ":[function() {},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequiree3ea")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-spinners":"Q9MKS","./profile.scss":"5LVpS","react-toastify":"kSvyQ"}],"5LVpS":[function() {},{}],"g7Oul":[function() {},{}],"lJZlQ":[function() {},{}]},["1xC6H","jVvJi","d8Dch"], "d8Dch", "parcelRequiree3ea")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
