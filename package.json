@@ -6,7 +6,8 @@
     "process": false
   },
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "parcel build src/index.html --public-url /"
   },
   "repository": {
     "type": "git",
