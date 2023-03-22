@@ -1,15 +1,14 @@
 import { useState, useEffect } from "react";
 import { DotLoader } from "react-spinners";
 import { toast } from "react-toastify";
+import elements from "../../styles/elements";
 import Axios from "axios";
-import "./profile.scss";
 
 const Profile = () => {
   const [user, setUser] = useState(false);
   const [newUsername, setNewUsername] = useState("");
   const [confirm, setConfirm] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
-  const [showFavorites, setShowFavorites] = useState(false);
   const [favList, setFavList] = useState([]);
 
   const token = localStorage.getItem("Token");
@@ -27,6 +26,12 @@ const Profile = () => {
       .then((res) => setUser(res.data))
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      callMovies();
+    }
+  }, [user]);
 
   const confirmUsername = (e) => {
     e.preventDefault();
@@ -78,7 +83,6 @@ const Profile = () => {
         })
         .catch((err) => console.log(err))
     );
-    setShowFavorites(true);
   };
 
   const removeFav = (id) => {
@@ -106,54 +110,73 @@ const Profile = () => {
   };
 
   return (
-    <section className="profile">
+    <section className="mt-20">
       {user ? (
         <div>
-          <h1>Profile</h1>
-          <h2 className="username">{user.Username}</h2>
-          <p>
-            Welcome to your <strong>My Flix</strong> profile. Below is a
-            complete list of your favorite movies
-          </p>
-          <form className="username-form">
-            <label htmlFor="username">Username</label>
+          <h2 className="text-center text-xl font-bold my-2">
+            {user.Username}
+          </h2>
+          <form className="flex flex-col justify-center items-center">
+            <label htmlFor="username" className="hidden">
+              Username
+            </label>
             <input
               onChange={(e) => setNewUsername(e.target.value)}
               type="text"
               name="username"
               id="username"
               value={newUsername}
+              placeholder="Change Username"
+              className={`${elements.input} text-center`}
             />
-            <button onClick={confirmUsername}>Change Username</button>
+            <button
+              onClick={confirmUsername}
+              className={`${elements.greenButton}`}
+            >
+              Submit
+            </button>
           </form>
-          <div className="favorite-movies">
-            {showFavorites ? (
-              favList.length > 0 ? (
-                favList.map((movie, index) => (
-                  <div className="movie" key={index}>
-                    <img src={movie.ImageUrl} alt="favorite movie photo" />
-                    <h2>{movie.Title}</h2>
-                    <p>{movie.Description}</p>
-                    <button onClick={() => removeFav(movie._id)}>Remove</button>
-                  </div>
-                ))
-              ) : (
-                <>
-                  <h3>Add a new favorite movie to your list!</h3>
-                  <a href="http://localhost:1234/movies">
-                    <button className="see-movies">See Movies</button>
-                  </a>
-                </>
-              )
+          <div className="">
+            {favList.length > 0 ? (
+              favList.map((movie, index) => (
+                <div
+                  className="mx-auto my-10 flex flex-col justify-center items-center"
+                  key={index}
+                >
+                  <img
+                    src={movie.ImageUrl}
+                    alt="favorite movie photo"
+                    className="w-[648px] h-[960px] rounded-md shadow-md"
+                  />
+                  <button
+                    onClick={() => removeFav(movie._id)}
+                    className={`${elements.buttonRed}`}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))
             ) : (
-              <div>
-                <button onClick={callMovies}>Show movies</button>
+              <div className="p-5 my-5 flex flex-col justify-center items-center">
+                <p className="text-center my-5">
+                  Add a new favorite movie to your list!
+                </p>
+                <a href="http://localhost:1234/movies">
+                  <button className={`${elements.greenButton}`}>
+                    See Movies
+                  </button>
+                </a>
               </div>
             )}
           </div>
-          <button className="danger" onClick={() => setDeleteConfirm(true)}>
-            Delete Profile
-          </button>
+          <div className="flex justify-center items-center m-10">
+            <button
+              onClick={() => setDeleteConfirm(true)}
+              className={`${elements.buttonRed}`}
+            >
+              Delete Profile
+            </button>
+          </div>
           {confirm && (
             <div className="backdrop">
               <div className="confirmation">
@@ -161,10 +184,18 @@ const Profile = () => {
                   Are you sure you wish to change your username to {newUsername}
                   ? You will be logged out.
                 </p>
-                <button className="bad" onClick={submitUsername}>
+                <button
+                  className={`${elements.buttonRed}`}
+                  onClick={submitUsername}
+                >
                   Yes
                 </button>
-                <button onClick={() => setConfirm(false)}>No</button>
+                <button
+                  onClick={() => setConfirm(false)}
+                  className={`${elements.greenButton}`}
+                >
+                  No
+                </button>
               </div>
             </div>
           )}
@@ -172,10 +203,18 @@ const Profile = () => {
             <div className="backdrop">
               <div className="confirmation">
                 <p>Are you sure you want to delete your account?</p>
-                <button className="bad" onClick={deleteUser}>
+                <button
+                  className={`${elements.buttonRed}`}
+                  onClick={deleteUser}
+                >
                   Yes
                 </button>
-                <button onClick={() => setDeleteConfirm(false)}>No</button>
+                <button
+                  onClick={() => setDeleteConfirm(false)}
+                  className={`${elements.greenButton}`}
+                >
+                  No
+                </button>
               </div>
             </div>
           )}

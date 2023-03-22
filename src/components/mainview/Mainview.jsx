@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { BounceLoader } from "react-spinners";
-import { Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import Axios from "axios";
-import Navigation from "../navigation/Navigation";
 import MovieCard from "../movieCard/MovieCard";
 import MovieView from "../movieView/MovieView";
 import LoginView from "../loginView/LoginView";
 import RegisterView from "../registerView/RegisterView";
 import Profile from "../profile/Profile";
-import "./mainView.scss";
+import Header from "../header/Header";
 
 const Mainview = () => {
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(false);
+  const [search, setSearch] = useState("");
 
   const username = localStorage.getItem("Username");
   const token = localStorage.getItem("Token");
@@ -58,23 +57,22 @@ const Mainview = () => {
     setUser(user);
   };
 
+  const searchMovies = (e) => {
+    e.preventDefault();
+    if (search === "") return fetchMovies();
+    const searchedMovies = movies.filter((movie) =>
+      movie.Title.includes(search)
+    );
+    setMovies(searchedMovies);
+  };
+
   return (
     <BrowserRouter>
-      <Navigation user={user} />
+      <Header user={user} />
       <Routes>
         <Route
           path="/"
-          element={
-            <>
-              {user ? (
-                <Navigate to="/movies" />
-              ) : (
-                <Col md={5}>
-                  <RegisterView />
-                </Col>
-              )}
-            </>
-          }
+          element={<>{user ? <Navigate to="/movies" /> : <RegisterView />}</>}
         />
         <Route
           path="/login"
@@ -83,9 +81,7 @@ const Mainview = () => {
               {user ? (
                 <Navigate to="/movies" replace />
               ) : (
-                <Col md={5}>
-                  <LoginView onLoggedIn={(user) => login(user)} />
-                </Col>
+                <LoginView onLoggedIn={(user) => login(user)} />
               )}
             </>
           }
@@ -103,13 +99,19 @@ const Mainview = () => {
                       <BounceLoader />
                     </>
                   ) : (
-                    <>
-                      <section className="movies-container">
-                        {movies.map((movie) => (
-                          <MovieCard key={movie._id} movie={movie} />
-                        ))}
-                      </section>
-                    </>
+                    <section>
+                      <div className="flex justify-center items-center">
+                        <input
+                          onChange={(e) => setSearch(e.target.value)}
+                          onKeyUp={(e) => searchMovies(e)}
+                          placeholder="Search"
+                          className="mt-20 px-3 py-1 rounded-md shadow-md"
+                        />
+                      </div>
+                      {movies.map((movie) => (
+                        <MovieCard key={movie._id} movie={movie} />
+                      ))}
+                    </section>
                   )}
                 </>
               )}
@@ -123,9 +125,7 @@ const Mainview = () => {
               {!user ? (
                 <Navigate to="/login" replace />
               ) : (
-                <Col>
-                  <Profile user={user} />
-                </Col>
+                <Profile user={user} />
               )}
             </>
           }
@@ -134,7 +134,7 @@ const Mainview = () => {
           path="/logout"
           element={<LoginView onLoggedIn={(user) => login(user)} />}
         />
-        <Route path="/movies/:title" element={<MovieView />} />
+        <Route path="/movies/:title" element={<MovieView user={user} />} />
       </Routes>
     </BrowserRouter>
   );

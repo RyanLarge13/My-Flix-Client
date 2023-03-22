@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./navigation.scss";
+import { CgClose } from "react-icons/cg";
 
-const Navigation = ({ user }) => {
+const Navigation = ({ user, setNav }) => {
   const logout = () => {
     localStorage.removeItem("Token");
     localStorage.removeItem("Username");
@@ -13,32 +12,53 @@ const Navigation = ({ user }) => {
   };
   return (
     <>
-      {user ? (
-        <Navbar className="nav">
+      <motion.nav
+        initial={{ x: 200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        className="bg-white fixed inset-0 flex flex-col justify-center items-center text-center"
+      >
+        <CgClose
+          onClick={() => setNav(false)}
+          className="absolute top-5 left-5 text-2xl"
+        />
+        {user ? (
           <ul>
-            <li>
-              <Link to="/movies">Movies</Link>
+            <li className="my-5">
+              <Link to="/movies" onClick={() => setNav(false)}>
+                Movies
+              </Link>
             </li>
-            <li>
-              <Link to="/profile">Profile</Link>
+            <li className="my-5">
+              <Link to="/profile" onClick={() => setNav(false)}>
+                Profile
+              </Link>
             </li>
-            <li>
-              <Link onClick={logout}>Logout</Link>
+            <li className="my-5">
+              <Link
+                onClick={() => {
+                  logout();
+                  setNav(false);
+                }}
+              >
+                Logout
+              </Link>
             </li>
           </ul>
-        </Navbar>
-      ) : (
-        <Navbar className="nav">
+        ) : (
           <ul>
-            <li>
-              <Link to="/">Signup</Link>
+            <li className="my-5">
+              <Link to="/" onClick={() => setNav(false)}>
+                Signup
+              </Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
+            <li className="my-5">
+              <Link to="/login" onClick={() => setNav(false)}>
+                Login
+              </Link>
             </li>
           </ul>
-        </Navbar>
-      )}
+        )}
+      </motion.nav>
     </>
   );
 };

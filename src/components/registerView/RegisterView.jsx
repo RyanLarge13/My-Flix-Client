@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import variants from "../../styles/variants";
 import { ToastContainer, toast } from "react-toastify";
-import { Col, Row } from "react-bootstrap";
 import Axios from "axios";
-import "./registerView.scss";
+import elements from "../../styles/elements";
 import "react-toastify/dist/ReactToastify.css";
 
 const RegisterView = () => {
@@ -50,38 +51,62 @@ const RegisterView = () => {
   };
 
   return (
-    <section className="register-sec">
-      <h1>Sign up</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="Email">Email</label>
-        <input
+    <section className="p-5 mt-20">
+      <h1 className="text-2xl text-center">Sign up</h1>
+      <motion.form
+        variants={variants.formVariants}
+        initial="hidden"
+        animate="show"
+        onSubmit={handleSubmit}
+        className={`${elements.form}`}
+      >
+        <label htmlFor="Email" className="hidden">
+          Email
+        </label>
+        <motion.input
+          variants={variants.formChildren}
           type="email"
           name="Email"
           id="Email"
           value={email}
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
+          className={`${elements.input}`}
         />
-        <label htmlFor="Username">Username</label>
-        <input
+        <label htmlFor="Username" className="hidden">
+          Username
+        </label>
+        <motion.input
+          variants={variants.formChildren}
           type="text"
           name="Username"
           id="Username"
           value={username}
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
+          className={`${elements.input}`}
         />
-        <label htmlFor="Password">Password</label>
-        <input
+        <label htmlFor="Password" className="hidden">
+          Password
+        </label>
+        <motion.input
+          variants={variants.formChildren}
           type="password"
           name="Password"
           id="Password"
           value={password}
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
+          className={`${elements.input}`}
         />
-        <button type="submit">Submit</button>
-      </form>
+        <motion.button
+          variants={variants.formChildren}
+          type="submit"
+          className={`${elements.greenButton}`}
+        >
+          Submit
+        </motion.button>
+      </motion.form>
       <ToastContainer
         position="top-center"
         autoClose={5000}
