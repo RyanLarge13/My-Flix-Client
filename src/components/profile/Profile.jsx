@@ -123,7 +123,7 @@ const Profile = () => {
               favList.map((movie, index) => (
                 <div
                   onClick={() =>
-                    (window.location = `http://localhost:1234/movies/${movie.Title}`)
+                    (window.location = `https://ryans-flix.netlify.app/movies/${movie.Title}`)
                   }
                   className="my-10 mx-5 p-10 rounded-md shadow-md flex flex-col justify-center items-center bg-[#222222]"
                   key={index}
@@ -146,7 +146,7 @@ const Profile = () => {
                 <p className="text-center my-5">
                   Add a new favorite movie to your list!
                 </p>
-                <a href="http://localhost:1234/movies">
+                <a href="https://ryans-flix.netlify.app/movies">
                   <button className={`${elements.greenButton}`}>
                     See Movies
                   </button>

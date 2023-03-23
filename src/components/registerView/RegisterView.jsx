@@ -32,7 +32,7 @@ const RegisterView = () => {
           theme: "light",
         });
         setTimeout(() => {
-          window.location.href = "http://localhost:1234/login";
+          window.location.href = "https://ryans-flix.netlify.app/login";
         }, 3500);
       })
       .catch((err) =>

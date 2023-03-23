@@ -12,7 +12,7 @@ const MovieCard = ({ movie }) => {
       />
       <h1 className="mt-5 text-xl font-bold">{movie.Title}</h1>
       <p className="my-5">{movie.Description}</p>
-      <a href={`http://localhost:1234/movies/${movie.Title}`}>
+      <a href={`https://ryans-flix.netlify.app/movies/${movie.Title}`}>
         <button className={`${elements.greenButton}`}>View More</button>
       </a>
     </div>

@@ -8,7 +8,7 @@ const Navigation = ({ user, setNav }) => {
     localStorage.removeItem("Token");
     localStorage.removeItem("Username");
     setTimeout(() => {
-      window.location = "/login";
+      window.location = "https://ryans-flix.netlify.app/login";
     }, 100);
   };
   return (
