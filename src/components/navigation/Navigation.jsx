@@ -8,7 +8,7 @@ const Navigation = ({ user, setNav }) => {
     localStorage.removeItem("Token");
     localStorage.removeItem("Username");
     setTimeout(() => {
-      window.location.href = "/login";
+      window.location = "/login";
     }, 100);
   };
   return (
