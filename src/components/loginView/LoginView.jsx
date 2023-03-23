@@ -11,7 +11,6 @@ const LoginView = ({ onLoggedIn }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const productionUrl = "https://my-flix-production.up.railway.app/";
-    const devUrl = "http://localhost:8080/";
 
     Axios.post(`${productionUrl}login`, {
       username: username,
@@ -33,7 +32,7 @@ const LoginView = ({ onLoggedIn }) => {
   return (
     <>
       <section className="pt-10">
-        <h1 className="pt-10 text-2xl text-center">Login</h1>
+        <h1 className="pt-10 text-2xl text-center text-white">Login</h1>
         <motion.form
           variants={variants.formVariants}
           initial="hidden"

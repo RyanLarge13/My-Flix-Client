@@ -9,7 +9,7 @@ const Header = ({ user }) => {
   return (
     <>
       <header className={`${elements.header}`}>
-        <CgMenuRight onClick={() => setNav(true)} />
+        <CgMenuRight onClick={() => setNav(true)} className="cursor-pointer" />
       </header>
       {nav && <Navigation user={user} setNav={setNav} />}
     </>

@@ -12,7 +12,6 @@ const MovieView = ({ user }) => {
   const username = localStorage.getItem("Username");
   const title = document.URL.split("/").pop();
   const productionUrl = "https://my-flix-production.up.railway.app/";
-  const devUrl = "http://localhost:8080/";
 
   useEffect(() => {
     Axios.get(`${productionUrl}movies/${title}`, {
@@ -71,21 +70,23 @@ const MovieView = ({ user }) => {
             alt="movie"
             className="w-[432px] h-[640px] rounded-md shadow-md"
           />
-          <h2 className="mt-5 text-xl font-bold">{movie.Title}</h2>
-          <p className="m-5">{movie.Description}</p>
-          <button>
-            {favorite ? (
-              <AiFillStar
-                className="text-yellow-400"
-                onClick={() => removeFav(movie._id)}
-              />
-            ) : (
-              <AiOutlineStar
-                className="text-yellow-400"
-                onClick={() => addFavorite(movie._id)}
-              />
-            )}
-          </button>
+          <div className="p-5 rounded-md shadow-md bg-[#222222] text-white mt-5">
+            <h2 className="mt-5 text-xl font-bold">{movie.Title}</h2>
+            <p className="m-5">{movie.Description}</p>
+            <button>
+              {favorite ? (
+                <AiFillStar
+                  className="text-yellow-400"
+                  onClick={() => removeFav(movie._id)}
+                />
+              ) : (
+                <AiOutlineStar
+                  className="text-yellow-400"
+                  onClick={() => addFavorite(movie._id)}
+                />
+              )}
+            </button>
+          </div>
         </section>
       ) : (
         <BounceLoader />

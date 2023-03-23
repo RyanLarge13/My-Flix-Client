@@ -8,5 +8,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Merriweather", serif;
-  font-size: 32;
+}
+
+body {
+  background-image: url("https://wallpapercave.com/wp/wp6608561.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }

@@ -977,8 +977,20 @@ img, video {
   position: absolute;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .inset-0 {
   inset: 0;
+}
+
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
+.bottom-5 {
+  bottom: 1.25rem;
 }
 
 .left-0 {
@@ -989,29 +1001,40 @@ img, video {
   left: 1.25rem;
 }
 
+.left-\[50\%\] {
+  left: 50%;
+}
+
 .right-0 {
   right: 0;
+}
+
+.right-5 {
+  right: 1.25rem;
 }
 
 .top-0 {
   top: 0;
 }
 
+.top-10 {
+  top: 2.5rem;
+}
+
 .top-5 {
   top: 1.25rem;
 }
 
-.m-5 {
-  margin: 1.25rem;
+.z-50 {
+  z-index: 50;
 }
 
 .m-10 {
   margin: 2.5rem;
 }
 
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+.m-5 {
+  margin: 1.25rem;
 }
 
 .mx-10 {
@@ -1019,9 +1042,9 @@ img, video {
   margin-right: 2.5rem;
 }
 
-.my-20 {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+.mx-3 {
+  margin-left: .75rem;
+  margin-right: .75rem;
 }
 
 .mx-5 {
@@ -1029,9 +1052,9 @@ img, video {
   margin-right: 1.25rem;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .my-2 {
@@ -1039,9 +1062,14 @@ img, video {
   margin-bottom: .5rem;
 }
 
-.my-10 {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .mt-20 {
@@ -1060,12 +1088,12 @@ img, video {
   display: flex;
 }
 
-.hidden {
-  display: none;
+.grid {
+  display: grid;
 }
 
-.h-\[400px\] {
-  height: 400px;
+.hidden {
+  display: none;
 }
 
 .h-\[480px\] {
@@ -1080,18 +1108,6 @@ img, video {
   height: 960px;
 }
 
-.w-full {
-  width: 100%;
-}
-
-.w-\[200px\] {
-  width: 200px;
-}
-
-.w-\[300px\] {
-  width: 300px;
-}
-
 .w-\[324px\] {
   width: 324px;
 }
@@ -1104,8 +1120,25 @@ img, video {
   width: 648px;
 }
 
+.w-full {
+  width: 100%;
+}
+
+.translate-x-\[-50\%\] {
+  --tw-translate-x: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .cursor-pointer {
   cursor: pointer;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -1116,16 +1149,16 @@ img, video {
   align-items: center;
 }
 
-.justify-start {
-  justify-content: flex-start;
-}
-
 .justify-center {
   justify-content: center;
 }
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
 }
 
 .rounded-md {
@@ -1135,6 +1168,11 @@ img, video {
 .rounded-b-md {
   border-bottom-right-radius: .375rem;
   border-bottom-left-radius: .375rem;
+}
+
+.bg-\[\#222222\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 34 34 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -1166,6 +1204,10 @@ img, video {
   --tw-gradient-to: #fca5a5;
 }
 
+.p-10 {
+  padding: 2.5rem;
+}
+
 .p-3 {
   padding: .75rem;
 }
@@ -1174,13 +1216,14 @@ img, video {
   padding: 1.25rem;
 }
 
-.p-2 {
-  padding: .5rem;
-}
-
 .px-3 {
   padding-left: .75rem;
   padding-right: .75rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 
 .py-1 {
@@ -1193,9 +1236,9 @@ img, video {
   padding-bottom: .5rem;
 }
 
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.py-3 {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
 }
 
 .pt-10 {
@@ -1218,6 +1261,16 @@ img, video {
 
 .font-bold {
   font-weight: 700;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-yellow-400 {
@@ -1246,7 +1299,36 @@ img, video {
   margin: 0;
   padding: 0;
   font-family: Merriweather, serif;
-  font-size: 32px;
+}
+
+body {
+  background-image: url("https://wallpapercave.com/wp/wp6608561.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:grid {
+    display: grid;
+  }
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /*# sourceMappingURL=index.443a73ce.css.map */

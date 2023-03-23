@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CgClose } from "react-icons/cg";
+import elements from "../../styles/elements";
 
 const Navigation = ({ user, setNav }) => {
   const logout = () => {
@@ -15,7 +16,7 @@ const Navigation = ({ user, setNav }) => {
       <motion.nav
         initial={{ x: 200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        className="bg-white fixed inset-0 flex flex-col justify-center items-center text-center"
+        className={`${elements.nav}`}
       >
         <CgClose
           onClick={() => setNav(false)}

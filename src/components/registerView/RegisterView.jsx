@@ -12,7 +12,6 @@ const RegisterView = () => {
   const [password, setPassword] = useState("");
 
   const productionUrl = "https://my-flix-production.up.railway.app/";
-  const devUrl = "http://localhost:8080/";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,7 +51,7 @@ const RegisterView = () => {
 
   return (
     <section className="p-5 mt-20">
-      <h1 className="text-2xl text-center">Sign up</h1>
+      <h1 className="text-2xl text-center text-white">Sign up</h1>
       <motion.form
         variants={variants.formVariants}
         initial="hidden"

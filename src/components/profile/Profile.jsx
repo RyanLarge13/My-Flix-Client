@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { DotLoader } from "react-spinners";
 import { toast } from "react-toastify";
+import { FaCog } from "react-icons/fa";
+import { motion } from "framer-motion";
 import elements from "../../styles/elements";
 import Axios from "axios";
 
@@ -10,11 +12,11 @@ const Profile = () => {
   const [confirm, setConfirm] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const [favList, setFavList] = useState([]);
+  const [settings, setSettings] = useState(false);
 
   const token = localStorage.getItem("Token");
   const username = localStorage.getItem("Username");
   const productionUrl = "https://my-flix-production.up.railway.app/";
-  const devUrl = "http://localhost:8080/";
 
   useEffect(() => {
     Axios.get(`${productionUrl}users/${username}`, {
@@ -113,40 +115,23 @@ const Profile = () => {
     <section className="mt-20">
       {user ? (
         <div>
-          <h2 className="text-center text-xl font-bold my-2">
+          <h2 className="text-center text-xl font-bold my-2 text-white bg-[#222222] mx-3 rounded-md sticky top-10">
             {user.Username}
           </h2>
-          <form className="flex flex-col justify-center items-center">
-            <label htmlFor="username" className="hidden">
-              Username
-            </label>
-            <input
-              onChange={(e) => setNewUsername(e.target.value)}
-              type="text"
-              name="username"
-              id="username"
-              value={newUsername}
-              placeholder="Change Username"
-              className={`${elements.input} text-center`}
-            />
-            <button
-              onClick={confirmUsername}
-              className={`${elements.greenButton}`}
-            >
-              Submit
-            </button>
-          </form>
           <div className="">
             {favList.length > 0 ? (
               favList.map((movie, index) => (
                 <div
-                  className="mx-auto my-10 flex flex-col justify-center items-center"
+                  onClick={() =>
+                    (window.location = `http://localhost:1234/movies/${movie.Title}`)
+                  }
+                  className="my-10 mx-5 p-10 rounded-md shadow-md flex flex-col justify-center items-center bg-[#222222]"
                   key={index}
                 >
                   <img
                     src={movie.ImageUrl}
                     alt="favorite movie photo"
-                    className="w-[648px] h-[960px] rounded-md shadow-md"
+                    className="w-[648px] h-[960px] rounded-md shadow-md cursor-pointer"
                   />
                   <button
                     onClick={() => removeFav(movie._id)}
@@ -169,21 +154,17 @@ const Profile = () => {
               </div>
             )}
           </div>
-          <div className="flex justify-center items-center m-10">
-            <button
-              onClick={() => setDeleteConfirm(true)}
-              className={`${elements.buttonRed}`}
-            >
-              Delete Profile
-            </button>
-          </div>
           {confirm && (
-            <div className="backdrop">
-              <div className="confirmation">
-                <p>
-                  Are you sure you wish to change your username to {newUsername}
-                  ? You will be logged out.
-                </p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="z-50 fixed bottom-10 left-[50%] translate-x-[-50%] rounded-md shadow-md p-5 bg-white"
+            >
+              <p>
+                Are you sure you wish to change your username to {newUsername}?
+                You will be logged out.
+              </p>
+              <div className="w-full flex justify-around items-center">
                 <button
                   className={`${elements.buttonRed}`}
                   onClick={submitUsername}
@@ -197,12 +178,16 @@ const Profile = () => {
                   No
                 </button>
               </div>
-            </div>
+            </motion.div>
           )}
           {deleteConfirm && (
-            <div className="backdrop">
-              <div className="confirmation">
-                <p>Are you sure you want to delete your account?</p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="z-50 fixed bottom-10 left-[50%] translate-x-[-50%] rounded-md shadow-md p-5 bg-white"
+            >
+              <p>Are you sure you want to delete your account?</p>
+              <div className="w-full flex justify-around items-center">
                 <button
                   className={`${elements.buttonRed}`}
                   onClick={deleteUser}
@@ -216,12 +201,52 @@ const Profile = () => {
                   No
                 </button>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
       ) : (
         <DotLoader />
       )}
+      {settings && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { duration: 0.5 } }}
+          className="inset-0 fixed bg-[#222222] flex flex-col justify-around items-center"
+        >
+          <form className="flex flex-col justify-center items-center">
+            <label htmlFor="username" className="hidden">
+              Username
+            </label>
+            <input
+              onChange={(e) => setNewUsername(e.target.value)}
+              type="text"
+              name="username"
+              id="username"
+              value={newUsername}
+              placeholder="Change Username"
+              className={`${elements.input} text-center`}
+            />
+            <button
+              onClick={confirmUsername}
+              className={`${elements.greenButton}`}
+            >
+              Submit
+            </button>
+          </form>
+          <div className="flex justify-center items-center m-10">
+            <button
+              onClick={() => setDeleteConfirm(true)}
+              className={`${elements.buttonRed}`}
+            >
+              Delete Profile
+            </button>
+          </div>
+        </motion.div>
+      )}
+      <FaCog
+        onClick={() => setSettings((prev) => !prev)}
+        className="fixed bottom-5 right-5 text-xl text-white cursor-pointer"
+      />
     </section>
   );
 };

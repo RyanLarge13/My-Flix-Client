@@ -18,7 +18,6 @@ const Mainview = () => {
   const username = localStorage.getItem("Username");
   const token = localStorage.getItem("Token");
   const productionUrl = "https://my-flix-production.up.railway.app/";
-  const devUrl = "http://localhost:8080/";
 
   useEffect(() => {
     fetchMovies();
@@ -108,9 +107,11 @@ const Mainview = () => {
                           className="mt-20 px-3 py-1 rounded-md shadow-md"
                         />
                       </div>
-                      {movies.map((movie) => (
-                        <MovieCard key={movie._id} movie={movie} />
-                      ))}
+                      <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+                        {movies.map((movie) => (
+                          <MovieCard key={movie._id} movie={movie} />
+                        ))}
+                      </div>
                     </section>
                   )}
                 </>
