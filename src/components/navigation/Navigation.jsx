@@ -4,12 +4,13 @@ import { CgClose } from "react-icons/cg";
 import elements from "../../styles/elements";
 import { useNavigate } from "react-router-dom";
 
-const Navigation = ({ user, setNav }) => {
+const Navigation = ({ user, setUser, setNav }) => {
   const navigate = useNavigate();
+
   const logout = () => {
-    navigate("/login");
     localStorage.removeItem("Token");
     localStorage.removeItem("Username");
+    setUser(false);
   };
   return (
     <>
@@ -20,7 +21,7 @@ const Navigation = ({ user, setNav }) => {
       >
         <CgClose
           onClick={() => setNav(false)}
-          className="absolute top-5 left-5 text-2xl"
+          className="absolute top-5 left-5 text-2xl cursor-pointer"
         />
         {user ? (
           <ul>

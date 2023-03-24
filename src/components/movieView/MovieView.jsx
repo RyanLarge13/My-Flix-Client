@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import { BounceLoader } from "react-spinners";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import Axios from "axios";
@@ -9,7 +10,7 @@ const MovieView = ({ user }) => {
 
   const token = localStorage.getItem("Token");
   const username = localStorage.getItem("Username");
-  const title = document.URL.split("/").pop();
+  const { title } = useParams();
   const productionUrl = "https://my-flix-production.up.railway.app/";
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const MovieView = ({ user }) => {
   }, []);
 
   useEffect(() => {
-    if (movie && user) {
+    if (movie && user.FavoriteMovies) {
       if (user.FavoriteMovies.includes(movie._id)) {
         setFavorite(true);
       }

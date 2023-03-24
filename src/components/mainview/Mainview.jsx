@@ -67,7 +67,7 @@ const Mainview = () => {
 
   return (
     <BrowserRouter>
-      <Header user={user} />
+      <Header user={user} setUser={setUser} />
       <Routes>
         <Route
           path="/"

@@ -59,7 +59,7 @@ const Profile = () => {
       .then((res) => {
         localStorage.removeItem("Token");
         localStorage.removeItem("Username");
-        window.location.href = "http://localhost:1234/login/";
+        navigate("/login");
       })
       .catch((err) => console.log(err));
   };
@@ -74,7 +74,7 @@ const Profile = () => {
       .then((res) => {
         localStorage.removeItem("Token");
         localStorage.removeItem("Username");
-        window.location.href = "http://localhost:1234/";
+        navigate("/login");
       })
       .catch((err) => console.log(err));
   };
@@ -124,11 +124,11 @@ const Profile = () => {
             {favList.length > 0 ? (
               favList.map((movie, index) => (
                 <div
-                  onClick={() => navigate(`/movies/${movie.Title}`)}
                   className="my-10 mx-5 p-10 rounded-md shadow-md flex flex-col justify-center items-center bg-[#222222]"
                   key={index}
                 >
                   <img
+                    onClick={() => navigate(`/movies/${movie.Title}`)}
                     src={movie.ImageUrl}
                     alt="favorite movie photo"
                     className="w-[648px] h-[960px] rounded-md shadow-md cursor-pointer"

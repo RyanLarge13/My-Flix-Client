@@ -1,4 +1,3 @@
-import { useState } from "react";
 import elements from "../../styles/elements";
 import { PropTypes } from "prop-types";
 import { useNavigate } from "react-router";
@@ -6,9 +5,6 @@ import { useNavigate } from "react-router";
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
 
-  const showMovie = (title) => {
-    navigate(`/movies/${title}`);
-  };
   return (
     <div className={`${elements.movieCard}`}>
       <img
@@ -20,7 +16,7 @@ const MovieCard = ({ movie }) => {
       <p className="my-5">{movie.Description}</p>
       <button
         className={`${elements.greenButton}`}
-        onClick={() => showMovie(movie.Title)}
+        onClick={() => navigate(`/movies/${movie.Title}`)}
       >
         View More
       </button>
