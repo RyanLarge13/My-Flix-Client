@@ -1,8 +1,14 @@
 import { useState } from "react";
 import elements from "../../styles/elements";
 import { PropTypes } from "prop-types";
+import { useNavigate } from "react-router";
 
 const MovieCard = ({ movie }) => {
+  const navigate = useNavigate();
+
+  const showMovie = (title) => {
+    navigate(`/movies/${title}`);
+  };
   return (
     <div className={`${elements.movieCard}`}>
       <img
@@ -12,9 +18,12 @@ const MovieCard = ({ movie }) => {
       />
       <h1 className="mt-5 text-xl font-bold">{movie.Title}</h1>
       <p className="my-5">{movie.Description}</p>
-      <a href={`https://ryans-flix.netlify.app/movies/${movie.Title}`}>
-        <button className={`${elements.greenButton}`}>View More</button>
-      </a>
+      <button
+        className={`${elements.greenButton}`}
+        onClick={() => showMovie(movie.Title)}
+      >
+        View More
+      </button>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { DotLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import { FaCog } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 import elements from "../../styles/elements";
 import Axios from "axios";
 
@@ -14,6 +15,7 @@ const Profile = () => {
   const [favList, setFavList] = useState([]);
   const [settings, setSettings] = useState(false);
 
+  const navigate = useNavigate();
   const token = localStorage.getItem("Token");
   const username = localStorage.getItem("Username");
   const productionUrl = "https://my-flix-production.up.railway.app/";
@@ -122,9 +124,7 @@ const Profile = () => {
             {favList.length > 0 ? (
               favList.map((movie, index) => (
                 <div
-                  onClick={() =>
-                    (window.location = `https://ryans-flix.netlify.app/movies/${movie.Title}`)
-                  }
+                  onClick={() => navigate(`/movies/${movie.Title}`)}
                   className="my-10 mx-5 p-10 rounded-md shadow-md flex flex-col justify-center items-center bg-[#222222]"
                   key={index}
                 >
@@ -146,11 +146,12 @@ const Profile = () => {
                 <p className="text-center my-5">
                   Add a new favorite movie to your list!
                 </p>
-                <a href="https://ryans-flix.netlify.app/movies">
-                  <button className={`${elements.greenButton}`}>
-                    See Movies
-                  </button>
-                </a>
+                <button
+                  className={`${elements.greenButton}`}
+                  onClick={() => navigate("/movies")}
+                >
+                  See Movies
+                </button>
               </div>
             )}
           </div>

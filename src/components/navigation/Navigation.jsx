@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { CgClose } from "react-icons/cg";
 import elements from "../../styles/elements";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = ({ user, setNav }) => {
+  const navigate = useNavigate();
   const logout = () => {
+    navigate("/login");
     localStorage.removeItem("Token");
     localStorage.removeItem("Username");
-    setTimeout(() => {
-      window.location = "https://ryans-flix.netlify.app/login";
-    }, 100);
   };
   return (
     <>

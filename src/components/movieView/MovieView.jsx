@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { BounceLoader } from "react-spinners";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
-import elements from "../../styles/elements";
 import Axios from "axios";
 
 const MovieView = ({ user }) => {

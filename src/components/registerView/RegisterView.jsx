@@ -4,6 +4,7 @@ import variants from "../../styles/variants";
 import { ToastContainer, toast } from "react-toastify";
 import Axios from "axios";
 import elements from "../../styles/elements";
+import { useNavigate } from "react-router";
 import "react-toastify/dist/ReactToastify.css";
 
 const RegisterView = () => {
@@ -11,6 +12,7 @@ const RegisterView = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
   const productionUrl = "https://my-flix-production.up.railway.app/";
 
   const handleSubmit = (e) => {
@@ -31,9 +33,7 @@ const RegisterView = () => {
           progress: undefined,
           theme: "light",
         });
-        setTimeout(() => {
-          window.location.href = "https://ryans-flix.netlify.app/login";
-        }, 3500);
+        navigate("/login");
       })
       .catch((err) =>
         toast.error(err.response.data, {
