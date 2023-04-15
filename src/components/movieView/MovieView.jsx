@@ -70,10 +70,10 @@ const MovieView = ({ user }) => {
             alt="movie"
             className="w-[432px] h-[640px] rounded-md shadow-md"
           />
-          <div className="p-5 rounded-md shadow-md bg-[#222222] text-white mt-5">
+          <div className="p-5 rounded-md shadow-md bg-[#222222] text-white mt-5 mx-auto">
             <h2 className="mt-5 text-xl font-bold">{movie.Title}</h2>
-            <p className="m-5">{movie.Description}</p>
-            <button>
+            <p className="m-5 mb-10">{movie.Description}</p>
+            <button className="text-5xl">
               {favorite ? (
                 <AiFillStar
                   className="text-yellow-400"

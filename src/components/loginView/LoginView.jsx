@@ -13,8 +13,8 @@ const LoginView = ({ onLoggedIn }) => {
     const productionUrl = "https://my-flix-production.up.railway.app/";
 
     Axios.post(`${productionUrl}login`, {
-      username: username,
-      password: password,
+      username: username.trim(),
+      password: password.trim(),
     })
       .then((res) => {
         handleUser(res.data);

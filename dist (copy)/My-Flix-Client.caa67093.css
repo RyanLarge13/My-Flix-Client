@@ -1,0 +1,23 @@
+body {
+  background-image: url("./");
+}
+.movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+.movie h1 {
+  padding: 0.5em 0;
+}
+.movie button {
+  border: none;
+  outline: none;
+  padding: 0.25em 0.75em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/*# sourceMappingURL=My-Flix-Client.caa67093.css.map */

@@ -117,21 +117,24 @@ const Profile = () => {
     <section className="mt-20">
       {user ? (
         <div>
-          <h2 className="text-center text-xl font-bold my-2 text-white bg-[#222222] mx-3 rounded-md sticky top-10">
+          <h2 className="text-center text-xl font-bold my-2 text-white bg-[#222222] mx-auto w-[300px] py-2 rounded-md shadow-md sticky top-10">
             {user.Username}
           </h2>
-          <div className="">
+          <p className="mx-auto w-max my-20 text-white font-bold">
+            Your Favorite Movies
+          </p>
+          <div className="px-3 grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {favList.length > 0 ? (
               favList.map((movie, index) => (
                 <div
-                  className="my-10 mx-5 p-10 rounded-md shadow-md flex flex-col justify-center items-center bg-[#222222]"
+                  className="my-10 mx-auto p-10 rounded-md shadow-md flex flex-col justify-center items-center bg-[#222222]"
                   key={index}
                 >
                   <img
                     onClick={() => navigate(`/movies/${movie.Title}`)}
                     src={movie.ImageUrl}
                     alt="favorite movie photo"
-                    className="w-[648px] h-[960px] rounded-md shadow-md cursor-pointer"
+                    className="rounded-md shadow-md cursor-pointer"
                   />
                   <button
                     onClick={() => removeFav(movie._id)}
@@ -142,7 +145,7 @@ const Profile = () => {
                 </div>
               ))
             ) : (
-              <div className="p-5 my-5 flex flex-col justify-center items-center">
+              <div className="p-5 my-5 mt-20 flex flex-col justify-center items-center rounded-md shaqdow-md bg-white w-[300px] mx-auto">
                 <p className="text-center my-5">
                   Add a new favorite movie to your list!
                 </p>
