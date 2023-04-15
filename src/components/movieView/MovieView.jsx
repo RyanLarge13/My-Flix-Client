@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { BounceLoader } from "react-spinners";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
+import { ToastContainer, toast } from "react-toastify";
 import Axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
 
 const MovieView = ({ user }) => {
   const [movie, setMovie] = useState(null);
@@ -45,7 +47,18 @@ const MovieView = ({ user }) => {
         },
       }
     )
-      .then((res) => console.log(res.data))
+      .then((res) => {
+        toast("Favorite Movie Added", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
       .catch((err) => console.log(err));
   };
 
@@ -57,7 +70,18 @@ const MovieView = ({ user }) => {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => console.log(res))
+      .then((res) => {
+        toast("Favorite Movie Removed", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      })
       .catch((err) => console.log(err));
   };
 
@@ -87,6 +111,20 @@ const MovieView = ({ user }) => {
               )}
             </button>
           </div>
+          <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
+          {/* Same as */}
+          <ToastContainer />
         </section>
       ) : (
         <BounceLoader />

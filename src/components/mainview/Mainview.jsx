@@ -62,7 +62,7 @@ const Mainview = () => {
     const searchedMovies = movies.filter((movie) =>
       movie.Title.includes(search)
     );
-    setMovies(searchedMovies);
+    setMovies((prev) => (searchedMovies.length < 1 ? prev : searchedMovies));
   };
 
   return (
